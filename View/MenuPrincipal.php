@@ -1,3 +1,8 @@
+<?php
+require_once '../Model/Sesions.php';
+$s = new Sesions();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -46,10 +51,13 @@
                     <th scope="col" class="text-center encabezado">Apellido</th>
                     <th scope="col" class="text-center encabezado">Apellido</th>
                     <th scope="col" class="text-center encabezado">Cargo</th>
+                    <th scope="col" class="text-center encabezado">Registro</th>
                     <th scope="col" class="text-center encabezado">Acciones</th>
                 </thead>
                 <tbody>
-                    <!--Valores dinamicos conectados al modelo y controlador para acceso a BD-->
+                    <?php
+                        echo $s->GetUsers();
+                    ?>
                 </tbody>
             </table>
         </div>
