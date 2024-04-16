@@ -1,0 +1,45 @@
+.div1{
+    padding-top: 1.5rem;
+}
+
+.controls{
+    border-radius: 10px;
+    border-color: #000000;
+}
+
+.controls2{
+    border-radius: 10px;
+    border-color: #000000;
+    width: 500px;
+    background-color: #DEEBF7;
+}
+
+.form{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: -20px;
+}
+.form-box{
+    border-radius: 10px; /* Borde redondeado para el div */
+    box-shadow: 5px 5px 10px #000000, -5px -2px 5px #000000; 
+    width: 710px;
+    height: 665px;
+    background-color: #DEEBF7;
+    margin-bottom: -30px;
+}
+
+.etiquetas{
+    text-align: center;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.logo-user{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    width: 100px;
+}   

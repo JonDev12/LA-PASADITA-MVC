@@ -1,0 +1,43 @@
+:root{
+    --panel-superior: #c4f1fc;
+    --platillos-fondo: #ECDDEC;
+}
+
+
+
+.form{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: -20px;
+}
+
+.form-box{
+    border-radius: 10px; /* Borde redondeado para el div */
+    box-shadow: 5px 5px 10px #000000, -5px -2px 5px #000000; 
+    width: 500px;
+    height: 400px;
+    background-color: var(--panel-superior);
+}
+
+.text-sesion{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.entradas{
+    height: 30px;
+    border-radius: 15px;
+    margin-left: 70px;
+    display: flex;
+    width: 350px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.centrarControles{
+    margin-top: 50px;
+}
