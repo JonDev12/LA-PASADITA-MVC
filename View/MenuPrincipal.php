@@ -1,6 +1,5 @@
 <?php
 require_once '../Model/Menu_Load.php';
-require_once '../Controller/Sesion.php';
 $s = new Menu();
 ?>
 
