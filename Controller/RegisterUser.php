@@ -1,5 +1,5 @@
 <?php
-require_once '../Model/Connection.php';
+
 $con = new Connection();
 //This is the connection to the database
 if($con->getConnection()->connect_errno){
@@ -19,7 +19,7 @@ if($con->getConnection()->connect_errno){
     }else{
         echo'
         <script>
-        alert("ATENCION: No se pueden validar campos vacios ");
+        alert("AVISO","No se pueden validar campos vacios ");
         </script>';
     }
 }

@@ -1,5 +1,5 @@
 <?php
-require_once '../Model/Connection.php';
+
 function SesionOn(){
     global $con; // Cambia $conn por $con para que coincida con la variable de conexión que has creado
     
