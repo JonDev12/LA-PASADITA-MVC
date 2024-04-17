@@ -12,7 +12,7 @@
 
 <body style="background-image: url(../images/background-lp.jpg); background-size:cover; ">
     <div class="form">
-        <form class="form-box" action="Sesion.php" method="POST">
+        <form class="form-box" action="" method="POST">
             <h1 class="text-sesion p-4">Iniciar Sesion</h1>
             <div class="text-center">
                 <label for="username" class="form-label ">Nombre de Usuario</label>
@@ -28,8 +28,8 @@
         </form>
     </div>
     <!-- Incluye tu archivo JavaScript personalizado -->
-    <script src="js_personalizado/redireccion.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="../js_personalizado/redireccion.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

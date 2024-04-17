@@ -1,6 +1,7 @@
 <?php
-require_once '../Model/Sesions.php';
-$s = new Sesions();
+require_once '../Model/Menu_Load.php';
+require_once '../Controller/Sesion.php';
+$s = new Menu();
 ?>
 
 <!DOCTYPE html>

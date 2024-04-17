@@ -2,7 +2,7 @@
 
 require_once('../Model/Connection.php');
 
-class Sesions{
+class Menu{
     private $model_sesion;
     
     public function __construct() {
@@ -36,6 +36,7 @@ class Sesions{
                 $html .= "<td class='text-center'>{$row['ApellidoM']}</td>";
                 $html .= "<td class='text-center'>{$row['Tipo_usuario']}</td>";
                 $html .= "<td class='text-center'>{$row['Fecha_alta']}</td>";
+                $html .= "";
                 $html .= "</tr>";                
             }
     
