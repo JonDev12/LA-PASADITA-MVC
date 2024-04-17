@@ -12,7 +12,7 @@
 
 <body style="background-image: url(../images/background-lp.jpg); background-size:cover; ">
     <div class="form">
-        <form class="form-box" action="" method="POST">
+        <form class="form-box" action="../Controller/Sesion.php" method="POST">
             <h1 class="text-sesion p-4">Iniciar Sesion</h1>
             <div class="text-center">
                 <label for="username" class="form-label ">Nombre de Usuario</label>
