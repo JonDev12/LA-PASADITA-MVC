@@ -38,11 +38,11 @@ class Menu{
                 $html .= "<td class='text-center'>{$row['Tipo_usuario']}</td>";
                 $html .= "<td class='text-center'>{$formatted_date}</td>"; // Show the formatted date
                 $html .= "<td class='text-center'>
-                            <div>
-                                <button href='#' style='width: 45px; height: 45px;border-radius: 10px; background-color: #d9e3eb;'>
+                            <div class='text-center'>
+                                <button href='#' style='width: 40px; height: 40px;border-radius: 10px; background-color: #d9e3eb;'>
                                     <i class='bi bi-pen-fill'></i>
                                 </button>
-                                <button href='#' style='width: 45px; height: 45px;border-radius: 10px; background-color: red;'>
+                                <button href='#' style='width: 40px; height: 40px;border-radius: 10px; background-color: red;'>
                                     <i class='bi bi-trash3-fill'></i>
                                 </button>
                             </div>
