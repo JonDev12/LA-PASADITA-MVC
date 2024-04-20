@@ -70,5 +70,16 @@
     background-color: #c4f1fc;
 }
 
-.celda{
+.boton_editar{
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #d9e3eb;
+}
+
+.boton_eliminar{
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: red;
 }

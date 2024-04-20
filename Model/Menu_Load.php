@@ -1,51 +1,61 @@
 <?php
-
 require_once('../Model/Connection.php');
 
 class Menu{
-    private $model_sesion;
+    private $model_session;
     
     public function __construct() {
-        $this->model_sesion = new Connection();
+        $this->model_session = new Connection();
     }
     
     public function GetUsers(){
-        $con = $this->model_sesion->getConnection();
-        // Aquí puedes utilizar la conexión $con para realizar consultas
-        //Consulta de todos los usuarios
+        $con = $this->model_session->getConnection();
+        // Here you can use the connection $con to perform queries
+        // Query all users
         $sql = "SELECT IdUsuarios, Nombre, ApellidoP, ApellidoM, Tipo_usuario, Fecha_alta FROM usuarios";
         $result = $con->query($sql);
     
-        // Verificar si la consulta fue exitosa
+        // Check if the query was successful
         if ($result === false) {
-            // Manejar el error aquí, por ejemplo:
-            echo "Error en la consulta: " . $con->error;
-            // Puedes manejar el error de otra manera, como lanzar una excepción
-            // y manejarla donde llames a esta función.
+            // Handle the error here, for example:
+            echo "Error in the query: " . $con->error;
         } else {
-            // Creamos una variable para almacenar el HTML de la tabla
+            // Create a variable to store the HTML of the table
             $html = '';
-    
-            // Iteramos sobre los resultados
+            $formatted_date = '';
+            // Iterate over the results
             while ($row = $result->fetch_assoc()) {
-                // Agregamos una fila a la tabla por cada resultado
+                // Convert the date to the desired format 'd/m/Y'
+                $datetime = date_create($row['Fecha_alta']);
+                $formatted_date = date_format($datetime, 'd/m/Y');
+                
+                // Add a row to the table for each result
                 $html .= "<tr>";
                 $html .= "<th scope='row' class='text-center'>{$row['IdUsuarios']}</th>";
                 $html .= "<td class='text-center'>{$row['Nombre']}</td>";
                 $html .= "<td class='text-center'>{$row['ApellidoP']}</td>";
                 $html .= "<td class='text-center'>{$row['ApellidoM']}</td>";
                 $html .= "<td class='text-center'>{$row['Tipo_usuario']}</td>";
-                $html .= "<td class='text-center'>{$row['Fecha_alta']}</td>";
-                $html .= "";
+                $html .= "<td class='text-center'>{$formatted_date}</td>"; // Show the formatted date
+                $html .= "<td class='text-center'>
+                            <div>
+                                <button href='#' style='width: 45px; height: 45px;border-radius: 10px; background-color: #d9e3eb;'>
+                                    <i class='bi bi-pen-fill'></i>
+                                </button>
+                                <button href='#' style='width: 45px; height: 45px;border-radius: 10px; background-color: red;'>
+                                    <i class='bi bi-trash3-fill'></i>
+                                </button>
+                            </div>
+                        </td>";
                 $html .= "</tr>";                
             }
     
-            // Cerrar la conexión después de usarla
+            // Close the connection after using it
             $con->close();
     
-            // Devolvemos el HTML generado
+            // Return the generated HTML
             return $html;
         }
-    }
-        
+    }      
 }
+?>

@@ -42,8 +42,8 @@ $s = new Menu();
         <h1 class="text-center" style="font-size: 25px; margin-top: 21px;">Hola, Bienvenido</h1>
         <img src="../images/acceso.png" style="width: 100px;position: fixed;left: 47%;">
     </div>
-    <div class="contenedor" style="margin-top: auto;">
-        <div style="height: 200px; overflow-y: auto;">
+    <div class="contenedor" style="margin-top: 150px;">
+        <div style="height: 500px; overflow-y: auto;">
             <table border="1">
                 <thead>
                     <th scope="col" class="text-center" style="width:100px; background-color:#c4f1fc">#</th>
