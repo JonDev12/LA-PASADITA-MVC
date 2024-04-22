@@ -1,6 +1,6 @@
 # --------------------------- PROCEDIMIENTO 1  ---------------------
 DELIMITER //
-CREATE PROCEDURE InsertarBebida(IN p_Descripcion VARCHAR(25), IN p_Cantidad INT, IN p_Cantidad_ML INT, IN p_Precio DECIMAL(5,2))
+CREATE PROCEDURE InsertDrinks(IN p_Descripcion VARCHAR(25), IN p_Cantidad INT, IN p_Cantidad_ML INT, IN p_Precio DECIMAL(5,2))
 BEGIN
     DECLARE v_IdAlmacenExistente INT;
     DECLARE v_TotalExistente INT;
@@ -28,7 +28,7 @@ DELIMITER ;
 
 # ------------- PROCEDIMIENTO 2
 DELIMITER //
-CREATE PROCEDURE InsertarIngrediente(IN p_Descripcion VARCHAR(25), IN p_Cantidad INT, IN p_UMedida VARCHAR(15))
+CREATE PROCEDURE InsertarIngredients(IN p_Descripcion VARCHAR(25), IN p_Cantidad INT, IN p_UMedida VARCHAR(15))
 BEGIN
     DECLARE v_IdAlmacenExistente INT;
     DECLARE v_TotalExistente INT;
