@@ -63,8 +63,22 @@
             </ul>
         </div>
     </div>
-    <div>
-        
+    <div class="contenedor" style="margin-top: 150px;">
+        <div style="height: 500px; overflow-y: auto;">
+            <table border="1">
+                <thead>
+                    <th scope="col" class="text-center" style="width:100px; background-color:#c4f1fc">#</th>
+                    <th scope="col" class="text-center encabezado">Descripcion</th>
+                    <th scope="col" class="text-center encabezado">Creado</th>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div>
+            
+        </div>
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
