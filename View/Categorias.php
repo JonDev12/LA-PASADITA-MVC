@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +29,7 @@
 
     <div class="contenedor" style="margin-top: 150px;">
         <div style="height: 500px; overflow-y: auto;">
-            <table border="1">
+            <table border="1" id="table-categories">
                 <thead>
                     <th scope="col" class="text-center" style="width:100px; background-color:#c4f1fc">#</th>
                     <th scope="col" class="text-center encabezado">Descripcion</th>
@@ -33,7 +37,9 @@
                     <th scope="col" class="text-center encabezado">Acciones</th>
                 </thead>
                 <tbody>
-                    
+                    <?php
+                        
+                    ?>
                 </tbody>
             </table>
         </div>
