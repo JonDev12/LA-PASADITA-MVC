@@ -39,7 +39,7 @@ class ModelOrders{
             } else {
                 return '
                         <tr class="text-center">
-                            <td colspan="6" class="text-center">
+                            <td colspan="7" class="text-center">
                                 <h7 class="text-center">Sin datos que mostrar</h7>
                             </td>
                         </tr>';
