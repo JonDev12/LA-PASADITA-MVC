@@ -1,3 +1,7 @@
+<?php
+require_once '../Controller/Ctl_Ordenes.php';
+$ord = new ControllerOrders();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +37,9 @@
                     <th scope="col" class="text-center encabezado">Acciones</th>
                 </thead>
                 <tbody>
-                    
+                    <?php
+                    echo $ord->getOrders();
+                    ?>
                 </tbody>
             </table>
         </div>

@@ -39,7 +39,7 @@ $cat = new ControllerCategories();
                 </thead>
                 <tbody>
                     <?php
-                       echo $cat->ShowData();
+                    echo $cat->ShowData();
                     ?>
                 </tbody>
             </table>
