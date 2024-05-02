@@ -2,7 +2,8 @@
 <html lang="en">
 
 <?php
-
+require_once '../Controller/Ctl_Ingredientes.php';
+$ing = new ControllerIngredients();
 ?>
 
 <head>
@@ -31,14 +32,13 @@
         <div style="height: 500px; overflow-y: auto;">
             <table border="1" id="table-categories">
                 <thead>
-                    <th scope="col" class="text-center" style="width:100px; background-color:#c4f1fc">#</th>
                     <th scope="col" class="text-center encabezado">Descripcion</th>
-                    <th scope="col" class="text-center encabezado">Creado</th>
-                    <th scope="col" class="text-center encabezado">Acciones</th>
+                    <th scope="col" class="text-center encabezado">Cantidad</th>
+                    <th scope="col" class="text-center encabezado">Unidad Medida</th>
                 </thead>
                 <tbody>
                     <?php
-                    
+                    echo $ing->ShowData();
                     ?>
                 </tbody>
             </table>
