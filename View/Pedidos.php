@@ -15,7 +15,7 @@ $delv = new ControllerDelivery();
 <body>
     <nav class="barra navbar">
         <div class="container-fluid">
-            <a class="navbar-brand">Ordenes</a>
+            <a class="navbar-brand">Pedidos</a>
             <form class="d-flex text-center" role="search">
                 <button class="botones" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-arrow-return-left t_icon"></i>
