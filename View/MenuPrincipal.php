@@ -61,8 +61,8 @@ $s = new Menu();
                 </tbody>
             </table>
         </div>
-        
     </div>
+    
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header" style="background-color: #c4f1fc;">
@@ -77,7 +77,7 @@ $s = new Menu();
                 </button>
                 <button class="botones-offcanvas">
                     <img src="../images/pedidos.png" class="iconos" alt="">
-                    <span class="titulos">Peidios</span>
+                    <span class="titulos">Pedidos</span>
                 </button>
                 <button class="botones-offcanvas">
                     <img src="../images/metodo-de-pago.png" class="iconos" alt="">
