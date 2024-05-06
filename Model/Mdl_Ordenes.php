@@ -46,7 +46,8 @@ class ModelOrders{
             }
         } catch (Exception $e) {
             echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
-        }    }
+        }    
+    }
 
     public function getOrder($id){
         $query = $this->db->prepare('SELECT * FROM ordenes WHERE id_orden = ?');
