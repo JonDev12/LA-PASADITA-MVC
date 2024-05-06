@@ -59,6 +59,9 @@ $s = new Menu();
                         echo $s->GetUsers();
                     ?>
                 </tbody>
+                <button class="boton-form" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="bi bi-plus"></i>
+                </button>
             </table>
         </div>
     </div>
