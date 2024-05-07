@@ -11,6 +11,29 @@ class  UserValidation{
     }
 
     ValidateUserEntry() {
+        this.name = document.getElementsByName('txt_name');
+        this.ap1 = document.getElementsByName('txt_lname1');
+        this.ap2 = document.getElementsByName('txt_lname2');
+        this.type = document.getElementsByName('cbx_type_user');
+        this.phone = document.getElementsByName('txt_phone');
+        this.user = document.getElementsByName('txt_username');
+        this.passwd = document.getElementsByName('txt pwd');
+
+        if(this.name == "" || this.ap1 == "" || this.ap2 == "" || this.type == "" || this.phone == "" || this.user == "" || this.passwd == ""){
+            alert("Todos los campos son requeridos");
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    IsRequiredPwd(){
+        if(this.passwd.length < 8){
+            alert("La contraseña debe tener al menos 8 caracteres");
+            return false;
         
+        }else{
+            return true;
+        }
     }
 }
