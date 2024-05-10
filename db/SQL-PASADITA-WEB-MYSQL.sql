@@ -7,6 +7,13 @@ CREATE TABLE Categorias (
     Fecha_Creacion DATETIME
 );
 
+CREATE TABLE Categorias_has_Platillos (
+    IdCategorias INT, 
+    IdPLatillos INT,
+    FOREIGN KEY (IdCategorias) REFERENCES Categorias(IdCategorias) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (IdPLatillos) REFERENCES Platillos(IdPLatillos) ON DELETE CASCADE ON UPDATE CASCADE,
+);
+
 CREATE TABLE Categorias_has_Bebidas (
     IdCategorias INT, 
     IdBebidas INT,
@@ -88,9 +95,7 @@ CREATE TABLE Platillos (
     IdPLatillos INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
     Descripcion VARCHAR(45), 
     Precio DECIMAL(5,2), 
-    ImagenPlatillo LONGBLOB, -- Coma agregada
-    IdCategorias INT,
-    FOREIGN KEY (IdCategorias) REFERENCES Categorias(IdCategorias) ON DELETE CASCADE ON UPDATE CASCADE
+    ImagenPlatillo LONGBLOB
 );
 
 CREATE TABLE Platillos_has_Ingredientes (

@@ -11,7 +11,7 @@ class ControllerSaurces{
     }
 
     public function getAllSaurcesList(){
-        return $this->model->getAllSaurces();
+        //return $this->model->getAllSaurces();
     }
 
     public function getDelivery($id){

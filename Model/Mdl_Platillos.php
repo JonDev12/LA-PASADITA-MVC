@@ -11,28 +11,14 @@ class ModelSaurces{
 
     public function getAllSaurces(){
         try{
-            $query = "SELECT ImagenPlatillo, Descripcion FROM platillos"; 
-            $stmt = $this->db->prepare($query);
-            $stmt->execute();   
-            $result = $stmt->get_result();
-            if($result->num_rows > 0){
-                $cardbody = '';
-                while($row = $result->fetch_assoc()){
-                    $cardbody .= '<div class="card" style="width: 18rem;">
-                                        <img src="' . $row['ImagenPlatillo'] . '" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">' . $row['Descripcion'] . '</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                        </div>
-                                    </div>';
-                }
-                echo $cardbody;
-            }else{
-                echo '<h1 style="font-size: 23px;" class="text-center">Sin datos que mostrar</h1>';
-            }
+            $sql = "SELECT 
+                    'ImagenPlpatillo', 'Descripcion', 
+                    'Categoria', 'FechaCreacionN'
+                    FROM platillos
+                    INNNER JOIN categoria ON 
+                    platillos.idCategoria = categoria.idCategoria";
         }catch(Exception $e){
-            echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
+            echo '<script>alert("Error"'.$e->getMessage().')</script>';
         }
     }
 }
