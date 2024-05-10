@@ -31,5 +31,5 @@
     <script src="../js_personalizado/redireccion.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
-hola
+
 </html>
