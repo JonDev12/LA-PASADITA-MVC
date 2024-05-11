@@ -19,19 +19,23 @@ $platillos = new ControllerSaurces();
         <div class="container-fluid">
             <a class="navbar-brand">Platillos</a>
             <form class="d-flex text-center" role="search">
-                <button class="botones" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                <button class="botones" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" onclick="ReturnToPrincipal()">
                     <i class="bi bi-arrow-return-left t_icon"></i>
+                </button>
                 </button>
             </form>
         </div>
     </nav>
     <br>
     <h1 class="text-center" style="font-size: 30px">Nuestros Platillos</h1>
-    <!--Carrusel de bebidas-->
+    <!--Lista de Platillos-->
     <div>
+        <div class="card-group">
         <?php
         $platillos->getAllSaurcesList();
         ?>
+        </div>
     </div>
+    <script src="../js_personalizado/ReferencePage.js"></script>
 </body>
 </html>

@@ -28,7 +28,7 @@
         </form>
     </div>
     <!-- Incluye tu archivo JavaScript personalizado -->
-    <script src="../js_personalizado/redireccion.js"></script>
+    <script src="../js_personalizado/InicioSesion.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 
