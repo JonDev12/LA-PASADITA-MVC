@@ -40,7 +40,7 @@ class ModelSaurces {
             }
             return $platillos;
         } catch(Exception $e) {
-            // Manejar errores aquí si es necesario
+            echo $e->getMessage();
             return array(); // Devolver un array vacío en caso de error
         }
     }

@@ -32,7 +32,7 @@ $platillos = new ControllerSaurces();
     <div>
         <div class="card-group">
         <?php
-        $platillos->getAllSaurcesList();
+        print $platillos->getAllSaurcesList();
         ?>
         </div>
     </div>
