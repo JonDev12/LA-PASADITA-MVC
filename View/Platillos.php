@@ -37,5 +37,6 @@ $platillos = new ControllerSaurces();
         </div>
     </div>
     <script src="../js_personalizado/ReferencePage.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
