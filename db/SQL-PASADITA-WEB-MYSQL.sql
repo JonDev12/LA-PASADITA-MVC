@@ -11,7 +11,7 @@ CREATE TABLE Categorias_has_Platillos (
     IdCategorias INT, 
     IdPLatillos INT,
     FOREIGN KEY (IdCategorias) REFERENCES Categorias(IdCategorias) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (IdPLatillos) REFERENCES Platillos(IdPLatillos) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (IdPLatillos) REFERENCES Platillos(IdPLatillos) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Categorias_has_Bebidas (

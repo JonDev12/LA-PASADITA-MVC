@@ -29,10 +29,13 @@ class  UserValidation{
 
     //TODO: Complete this method to validate passwd field 
     IsRequiredPwd(){
-        if(this.passwd.length < 8){
+        if (this.passwd.length < 8) {
             alert("La contraseña debe tener al menos 8 caracteres");
             return false;
-        }else{
+        } else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/.test(this.passwd)) {
+            alert("La contraseña debe contener al menos una letra y un número");
+            return false;
+        } else {
             return true;
         }
     }
