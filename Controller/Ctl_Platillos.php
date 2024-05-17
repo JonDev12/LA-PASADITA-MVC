@@ -13,7 +13,7 @@ class ControllerSaurces{
     public function getAllSaurcesList(){
         $platillos = $this->model->getAllSaurces();
         foreach ($platillos as $platillo) {
-            echo '<div class="card" style="width: 18rem;">
+            print '<div class="card" style="width: 18rem;">
                     <img src="'.$platillo['imagen'].'" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">'.$platillo['descripcion'].'</h5>
