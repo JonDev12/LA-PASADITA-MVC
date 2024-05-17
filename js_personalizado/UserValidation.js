@@ -36,7 +36,7 @@ class  UserValidation{
             alert("La contraseña debe contener al menos una letra y un número");
             return false;
         } else {
-            alert('La contraseña no es valida');
+            alert('La contraseña no es valida, intente otra vez');
             return true;
         }
     }
