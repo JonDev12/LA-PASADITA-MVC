@@ -12,7 +12,7 @@
 
 <body>
     <div class="form">
-        <form class="form-box" action="../Controller/RegisterUser.php" method="POST">
+        <form class="form-box" action="../Controller/RegisterUser.php" method="POST" onsubmit="return UserValidation()">
             <div>
                 <h1 class="etiquetas">REGISTRARSE</h1>
                 <h1 class="etiquetas">Foto(Opcional)</h1>
@@ -61,9 +61,9 @@
                 </div>
             </div>
             <div class="text-center" style="margin: 1.5rem">
-                <button class="btn btn-primary" type="submit" value="Send">Enviar Datos</button>
-            </div>
+            <button class="btn btn-primary" type="submit" value="Send">Enviar Datos</button>            </div>
         </form>
     </div>
+    <script src="../js_personalizado/UserValidation.js"></script>
 </body>
 </html>
