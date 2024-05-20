@@ -20,7 +20,7 @@ $sales = new ControllerSales();
         <div class="container-fluid">
             <a class="navbar-brand">Ventas</a>
             <form class="d-flex text-center" role="search">
-                <button class="botones" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                <button class="botones" type="button" onclick="ReturnToPrincipal()">
                     <i class="bi bi-arrow-return-left t_icon"></i>
                 </button>
             </form>
@@ -30,7 +30,7 @@ $sales = new ControllerSales();
     <!--Botones CRUD-->
     <div class="col" style="margin-left: 50px; margin-top:50px">
         <div>
-            <button class="col btn btn-primary b_venta">
+            <button class="col btn btn-primary b_venta"  data-bs-toggle="modal" data-bs-target="#modalRegistro">
                 <i class="bi bi-bag-plus-fill"></i>
                 <br>
                 Agregar Venta
@@ -70,9 +70,12 @@ $sales = new ControllerSales();
             </table>
         </div>
         <div>
-
+            <!--Modal para registro-->
+            
         </div>
     </div>
+    <script src="../js_personalizado/ReferencePage.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
