@@ -16,7 +16,7 @@ $sales = new ControllerSales();
 </head>
 
 <body>
-    <nav class="barra navbar">
+    <nav class="barra navbar" style="width:1545px">
         <div class="container-fluid">
             <a class="navbar-brand">Ventas</a>
             <form class="d-flex text-center" role="search">
@@ -41,9 +41,9 @@ $sales = new ControllerSales();
                 <br>
                 Calcular Ventas
             </button>
-            <div class="row">
+            <div class="row" style="position: absolute; top: 125px; left: 340px;">
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:800px">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
