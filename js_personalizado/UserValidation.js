@@ -22,9 +22,9 @@ class  UserValidation{
         if(this.name == "" || this.ap1 == "" || this.ap2 == "" || this.type == "" || this.phone == "" || this.user == "" || this.passwd == ""){
             alert("Todos los campos son requeridos");
             return false;
-        }else{
-            return true;
         }
+
+        return this.IsRequiredPwd();
     }
 
     //TODO: Complete this method to validate passwd field 
@@ -41,3 +41,9 @@ class  UserValidation{
         }
     }
 }
+const ValidatePwd = new UserValidation();
+document.getElementById('Registro').addEventListener('submit', function(event) {
+    if (!validatePwd.ValidateUserEntry()) {
+        event.preventDefault(); // Prevenir el envío del formulario si la validación falla
+    }
+});
