@@ -19,7 +19,7 @@ class UserValidation {
         this.passwd = document.getElementsByName('txt_pwd')[0].value;
 
         if (this.name === "" || this.ap1 === "" || this.ap2 === "" || this.type === "......." || this.phone === "" || this.user === "" || this.passwd === "") {
-            alert("ATENCION","Todos los campos son requeridos");
+            alert("Todos los campos son requeridos");
             return false;
         }
 
