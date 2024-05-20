@@ -36,11 +36,20 @@ class UserValidation {
         }
         return true;
     }
+
+    
 }
 
 const validatePwd = new UserValidation();
 document.getElementById('Registro').addEventListener('submit', function(event) {
     if (!validatePwd.ValidateUserEntry()) {
+        event.preventDefault(); // Prevenir el envío del formulario si la validación falla
+    }
+});
+
+const ValidateUser = new UserValidation();
+document.getElementById('index').addEventListener('submit', function(event) {
+    if (!ValidateUser.ValidateUser()) {
         event.preventDefault(); // Prevenir el envío del formulario si la validación falla
     }
 });

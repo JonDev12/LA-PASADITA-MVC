@@ -16,7 +16,7 @@ $sales = new ControllerSales();
 </head>
 
 <body>
-    <nav class="barra navbar" style="width:1545px">
+    <nav class="barra navbar" style="width: 1366px;">
         <div class="container-fluid">
             <a class="navbar-brand">Ventas</a>
             <form class="d-flex text-center" role="search">
@@ -30,7 +30,7 @@ $sales = new ControllerSales();
     <!--Botones CRUD-->
     <div class="col" style="margin-left: 50px; margin-top:50px">
         <div>
-            <button class="col btn btn-primary b_venta"  data-bs-toggle="modal" data-bs-target="#modalRegistro">
+            <button class="col btn btn-primary b_venta" data-bs-toggle="modal" data-bs-target="#modalRegistro">
                 <i class="bi bi-bag-plus-fill"></i>
                 <br>
                 Agregar Venta
@@ -47,7 +47,35 @@ $sales = new ControllerSales();
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
-            <!--/*TODO Fix the search bar and the buttons*/---->
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalRegistroLabel">Registrar Venta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Modal body content goes here -->
+                    <form>
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Product Name</label>
+                            <input type="text" class="form-control" id="productName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productPrice" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="productPrice" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- Modal footer content goes here -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -69,11 +97,8 @@ $sales = new ControllerSales();
                 </tbody>
             </table>
         </div>
-        <div>
-            <!--Modal para registro-->
-            
-        </div>
     </div>
+
     <script src="../js_personalizado/ReferencePage.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
