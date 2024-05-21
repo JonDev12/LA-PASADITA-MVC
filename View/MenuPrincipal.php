@@ -73,42 +73,43 @@ $s = new Menu();
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <ul class="list-group" style="margin-top: 100px; height: auto; left:auto">
-                <button class="botones-offcanvas">
+            <ul class="list-group" style="margin-top: 100px; height: auto; left:auto" id="controles">
+                <button class="botones-offcanvas" id="Ordenes">
                     <img src="../images/orden.png" class="iconos3">
                     <span class="titulos">Ordenes</span>
                 </button>
-                <button class="botones-offcanvas">
+                <button class="botones-offcanvas" id="Pedidos">
                     <img src="../images/pedidos.png" class="iconos" alt="">
                     <span class="titulos">Pedidos</span>
                 </button>
-                <button class="botones-offcanvas">
+                <button class="botones-offcanvas" id="Ventas">
                     <img src="../images/metodo-de-pago.png" class="iconos" alt="">
                     <span class="titulos">Ventas</span>
                 </button>
-                <button class="botones-offcanvas">
+                <button class="botones-offcanvas" id="Ingredientes">
                     <img src="../images/ingredientes.png" class="iconos2" alt="">
                     <span class="titulos">Ingredientes</span>
                 </button>
-                <button class="botones-offcanvas">
-                    <img src="../images/pierna-de-pollo.png" class="iconos" alt="">
+                <button class="botones-offcanvas" id="Platillos">
+                    <img src="../images/pierna-de-pollo.png" class="iconos" alt="" >
                     <span class="titulos">Platillos</span>
                 </button>
-                <button class="botones-offcanvas">
+                <button class="botones-offcanvas" id="Bebidas">
                     <img src="../images/bebidas.png" class="iconos" alt="">
                     <span class="titulos">Bebidas</span>
                 </button>
-                <button class="botones-offcanvas">
+                <button class="botones-offcanvas" id="Categorias">
                     <img src="../images/categoria.png" class="iconos3" alt="">
                     <span class="titulos">Categorias</span>
                 </button>
-                <button class="botones-offcanvas">
+                <button class="botones-offcanvas" id="Almacen">
                     <img src="../images/almacen.png" class="iconos" alt="">
                     <span class="titulos">Almacen</span>
                 </button>
             </ul>
         </div>
     </div>
+    
     <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 
