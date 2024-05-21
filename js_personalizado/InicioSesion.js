@@ -23,7 +23,7 @@ function redireccion_menu() {
 }
 
 const ValidateUser = new InicioSesion();
-document.getElementById('index').addEventListener('submit', function(event) {
+document.getElementById('Sesion').addEventListener('submit', function(event) {
     if (!ValidateUser.OnSesion()) {
         event.preventDefault(); // Prevenir el envío del formulario si la validación falla
     }
