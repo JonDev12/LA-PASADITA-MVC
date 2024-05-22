@@ -47,6 +47,8 @@ $ord = new ControllerOrders();
         </div>
     </div>    
 
+    
+
     <div class="contenedor" style="margin-top: 150px;">
         <div style="height: 500px; overflow-y: auto;">
             <table border="1" id="table-categories">
