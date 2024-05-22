@@ -48,6 +48,24 @@ class ModelOrders{
             echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
         }    
     }
+    
+    public function getSaurces(){
+        try{
+            $sql = "SELECT Descripcion FROM platillos";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();   
+            $result = $stmt->get_result();
+            if($result->num_rows > 0){
+                $options = '';
+                while($row = $result->fetch_assoc()){
+                    $options .= '<option>'.$row['Descripcion'].'</option>';
+                }
+                return $options;
+            }
+        }catch(Exception $e){
+            echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
+        }
+    }
 
     public function getOrder($id){
         $query = $this->db->prepare('SELECT * FROM ordenes WHERE id_orden = ?');

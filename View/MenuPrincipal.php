@@ -106,6 +106,10 @@ $s = new Menu();
                     <img src="../images/almacen.png" class="iconos" alt="">
                     <span class="titulos">Almacen</span>
                 </button>
+                <button class="botones-offcanvas dropdown-menu" id="Mas">
+                    <img src="../images/almacen.png" class="iconos" alt="">
+                    <span class="titulos">Mas</span>
+                </button>
             </ul>
         </div>
     </div>
