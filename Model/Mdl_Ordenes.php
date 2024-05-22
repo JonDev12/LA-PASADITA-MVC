@@ -19,17 +19,17 @@ class ModelOrders{
                 $tableBody = '';
                 while ($row = $result->fetch_assoc()) {
                     $tableBody .= '<tr>';
-                    $tableBody .= '<td>' . $row['id'] . '</td>';
-                    $tableBody .= '<td>' . $row['estado'] . '</td>';
-                    $tableBody .= '<td>' . $row['fecha'] . '</td>';
-                    $tableBody .= '<td>' . $row['hora'] . '</td>';
-                    $tableBody .= '<td>' . $row['cantidad'] . '</td>';
-                    $tableBody .= '<td>' . $row['monto'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['IdOrdenes'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['estado'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['fecha'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['hora'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['cantidad'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['monto'] . '</td>';
                     $tableBody .= '<td>
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditOrder" onclick="editOrder(' . $row['id'] . ')">
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditOrder" onclick="editOrder()">
                                         <i class="bi bi-pencil-square"></i>
                                     </button>
-                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteOrder" onclick="deleteOrder(' . $row['id'] . ')">
+                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteOrder" onclick="">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </td>';
