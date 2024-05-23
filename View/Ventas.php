@@ -30,17 +30,12 @@ $sales = new ControllerSales();
     <!--Botones CRUD-->
     <div class="col" style="margin-left: 50px; margin-top:50px">
         <div>
-            <!--<button class="col btn btn-primary b_venta" >
-                <i class="bi bi-bag-plus-fill"></i>
-                <br>
-                Agregar Venta
-            </button>-->
-
             <button class="col btn btn-success b_venta" data-bs-toggle="modal" data-bs-target="#modalRegistro">
                 <i class="bi bi-calculator"></i>
                 <br>
                 Calcular Ventas
             </button>
+
             <div class="row" style="position: absolute; top: 125px; left: 340px;">
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="date" placeholder="Search" aria-label="Search" style="width:800px">
@@ -61,19 +56,17 @@ $sales = new ControllerSales();
                     <!-- Modal body content goes here -->
                     <form>
                         <div class="mb-3">
-                            <label for="productName" class="form-label">Cantidad Producto</label>
-                            <input type="number" class="form-control" id="countProd" required>
+                            <label for="productName" class="form-label">Desde:</label>
+                            <input type="date" class="form-control" id="countProdDate" required>
+                            <label for="productName" class="form-label">Hasta:</label>
+                            <input type="date" class="form-control" id="countProdDate2" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="productPrice" class="form-label">Total</label>
-                            <input type="number" class="form-control" id="productPrice" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Agregar</button>
+                        <button type="submit" class="btn btn-primary">Calcular</button>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <!-- Modal footer content goes here -->
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>

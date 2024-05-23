@@ -62,7 +62,7 @@ $ord = new ControllerOrders();
 
                     <div class="modal-body">
                         <!-- Modal body content goes here -->
-                        <form id="form-modal-NewOrder" action="../Controller/Modals/Ctrl_Mod_Ordenes.php">
+                        <form id="form-modal-NewOrder">
                             <div class="mb-3 ">
                                 <label for="exampleInputPassword1" class="form-label">Estado de Orden</label>
                                 <select class="form-select" aria-label="Default select example">
@@ -98,6 +98,7 @@ $ord = new ControllerOrders();
                 </div>
             </div>
         </div>
+
         <div class="modal fade" id="modalCalc" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -151,8 +152,6 @@ $ord = new ControllerOrders();
             </div>
         </div>
     </div>
-
-    <div id="InsertAl"></div>
 
     <script src="../js_personalizado/Orders.js"></script>
     <script src="../js/bootstrap.min.js"></script>
