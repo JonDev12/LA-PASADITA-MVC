@@ -30,7 +30,8 @@ $ord = new ControllerOrders();
     <div class="col" style="margin-left: 50px; margin-top:50px">
         <div>
             <button class="col btn btn-primary b_add" data-bs-toggle="modal" data-bs-target="#modalOrden">
-                <i class="bi bi-plus-circle-fill"></i>                <br>
+                <i class="bi bi-plus-circle-fill"></i>                
+                <br>
                 Agregar Orden
             </button>
 
@@ -52,15 +53,17 @@ $ord = new ControllerOrders();
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
 
-                    <div class="modal-header">
-                        <h5 class="modal-title text-center" id="modalRegistroLabel">Registrar Orden</h5>
+                    <div class="modal-header bg-primary">
+                        <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white" ></i>
+                        
+                        <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Registrar Orden</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
                         <!-- Modal body content goes here -->
-                        <form id="form-modal-NewOrder" action="../Controller/">
-                            <div class="mb-3">
+                        <form id="form-modal-NewOrder" action="../Controller/Modals/Ctrl_Mod_Ordenes.php">
+                            <div class="mb-3 ">
                                 <label for="exampleInputPassword1" class="form-label">Estado de Orden</label>
                                 <select class="form-select" aria-label="Default select example">
                                     <option selected>En espera</option>
@@ -76,7 +79,13 @@ $ord = new ControllerOrders();
                                     ?>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Cantidad</label>
+                                <input type="number" class="form-control" id="date">
+                                <label for="exampleInputPassword1" class="form-label">Monto del platillo</label>
+                                <input type="text" class="form-control" id="date"  placeholder="$00.00">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="">
                                 Agregar
                                 <i class="bi bi-arrow-right-circle-fill"></i>
                             </button>
@@ -139,10 +148,14 @@ $ord = new ControllerOrders();
                 </table>
             </div>
             <div>
-
             </div>
         </div>
-        <script src="../js/bootstrap.min.js"></script>
+    </div>
+
+    <div id="InsertAl"></div>
+
+    <script src="../js_personalizado/Orders.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>
