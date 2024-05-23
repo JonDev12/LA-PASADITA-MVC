@@ -30,15 +30,14 @@ $ord = new ControllerOrders();
     <div class="col" style="margin-left: 50px; margin-top:50px">
         <div>
             <button class="col btn btn-primary b_add" data-bs-toggle="modal" data-bs-target="#modalOrden">
-                <i class="bi bi-calculator"></i>
-                <br>
-                Calcular Ventas
+                <i class="bi bi-plus-circle-fill"></i>                <br>
+                Agregar Orden
             </button>
 
             <button class="col btn btn-success b_calc" data-bs-toggle="modal" data-bs-target="#modalCalc">
                 <i class="bi bi-calculator"></i>
                 <br>
-                Calcular Ventas
+                Calcular Ordenes
             </button>
 
             <div class="row" style="position: absolute; top: 125px; left: 340px;">
@@ -79,7 +78,10 @@ $ord = new ControllerOrders();
                                     <option value="3">Completado</option>-->
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Agregar</button>
+                            <button type="submit" class="btn btn-primary">
+                                Agregar
+                                <i class="bi bi-arrow-right-circle-fill"></i>
+                            </button>
                         </form>
                     </div>
                     <div class="modal-footer">
