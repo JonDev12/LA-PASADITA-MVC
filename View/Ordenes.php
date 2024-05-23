@@ -59,7 +59,7 @@ $ord = new ControllerOrders();
 
                     <div class="modal-body">
                         <!-- Modal body content goes here -->
-                        <form>
+                        <form id="form-modal-NewOrder" action="../Controller/">
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Estado de Orden</label>
                                 <select class="form-select" aria-label="Default select example">
@@ -70,12 +70,10 @@ $ord = new ControllerOrders();
                                 <label for="exampleInputPassword1" class="form-label">Platillo</label>
                                 <select class="form-select" aria-label="Default select example">
                                     //TODO Make this dynamic with php on Model and controller from Saurces class
+                                    <option selected>Seleccionar</option>
                                     <?php
                                     echo $ord->getSaurces();
                                     ?>
-                                    <!--<onption value="1">En espera</onption>
-                                    <option value="2">En Preparacion</option>
-                                    <option value="3">Completado</option>-->
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">

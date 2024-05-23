@@ -12,7 +12,7 @@
 
 <body>
     <div class="form">
-        <form class="form-box" action="../Controller/RegisterUser.php" method="POST" id="Registro">
+        <form class="form-box" action="../Controller/Ctl_RegisterUser.php" method="POST" id="Registro">
             <div>
                 <h1 class="etiquetas">REGISTRARSE</h1>
                 <h1 class="etiquetas">Foto (Opcional)</h1>
