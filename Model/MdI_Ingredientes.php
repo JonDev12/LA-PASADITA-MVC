@@ -8,8 +8,7 @@ class ModelIngredients{
         $this->db = $con->getConnection();        
     }
 
-    public function GetAllIngredients()
-    {
+    public function GetAllIngredients(){
         try {
             $query = "SELECT Descripcion, Cantidad, U_Medida FROM Ingredientes";
             $stmt = $this->db->prepare($query);
@@ -20,15 +19,15 @@ class ModelIngredients{
                 $tableBody = '';
                 while ($row = $result->fetch_assoc()) {
                     $tableBody .= '<tr>';
-                    $tableBody .= '<td>' . $row['Descripcion'] . '</td>';
-                    $tableBody .= '<td>' . $row['Cantidad'] . '</td>';
-                    $tableBody .= '<td>' . $row['Unidad Medida'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['Descripcion'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['Cantidad'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['U_Medida'] . '</td>';
                     $tableBody .=   "<td class='text-center'>
                                         <div class='text-center'>
-                                            <button href='#' style='width: 40px; height: 40px;border-radius: 10px; background-color: #d9e3eb;'>
+                                            <button data-bs-target='#modalIngEd' style='width: 40px; height: 40px;border-radius: 10px; background-color: #d9e3eb;'>
                                                 <i class='bi bi-pen-fill'></i>
                                             </button>
-                                            <button href='#' style='width: 40px; height: 40px;border-radius: 10px; background-color: red;'>
+                                            <button data-bs-target='#modalIngDe' style='width: 40px; height: 40px;border-radius: 10px; background-color: red;'>
                                                 <i class='bi bi-trash3-fill'></i>
                                             </button>
                                         </div>
@@ -48,4 +47,25 @@ class ModelIngredients{
             echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
         }
     }
+
+    public function ShowUnit(){
+        try{
+            $sql = "SELECT DISTINCT U_Medida FROM Ingredientes";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if($result->num_rows > 0){
+                $data = '';
+                while($row = $result->fetch_assoc()){
+                    $data .= '<option value="' . $row['U_Medida'] . '">' . $row['U_Medida'] . '</option>';
+                }
+                return $data;
+            } else {
+                return '<option>No units found</option>';
+            }
+        } catch(Exception $e){
+            echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
+        }
+    }
+    
 }

@@ -15,7 +15,7 @@ class ModelCategories
     public function GetAllCategories()
     {
         try {
-            $query = "SELECT Descripcion, Fecha_Creacion FROM categorias";
+            $query = "SELECT IdCategorias, Descripcion, Fecha_Creacion FROM categorias";
             $stmt = $this->db->prepare($query);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -24,14 +24,15 @@ class ModelCategories
                 $tableBody = '';
                 while ($row = $result->fetch_assoc()) {
                     $tableBody .= '<tr>';
+                    $tableBody .= '<td class="text-center">' . $row['IdCategorias'] . '</td>';
                     $tableBody .= '<td>' . $row['Descripcion'] . '</td>';
                     $tableBody .= '<td>' . $row['Fecha_Creacion'] . '</td>';
                     $tableBody .=   "<td class='text-center'>
                                         <div class='text-center'>
-                                            <button href='#' style='width: 40px; height: 40px;border-radius: 10px; background-color: #d9e3eb;'>
+                                            <button data-bs-target='modalIngEd' style='width: 40px; height: 40px;border-radius: 10px; background-color: #d9e3eb;'>
                                                 <i class='bi bi-pen-fill'></i>
                                             </button>
-                                            <button href='#' style='width: 40px; height: 40px;border-radius: 10px; background-color: red;'>
+                                            <button data-bs-target='modalIngDe' style='width: 40px; height: 40px;border-radius: 10px; background-color: red;'>
                                                 <i class='bi bi-trash3-fill'></i>
                                             </button>
                                         </div>
