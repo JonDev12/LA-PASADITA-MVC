@@ -16,7 +16,7 @@ $cat = new ControllerCategories();
 </head>
 
 <body>
-    
+
     <nav class="barra navbar">
         <div class="container-fluid">
             <a class="navbar-brand">Categorias</a>
@@ -27,6 +27,103 @@ $cat = new ControllerCategories();
             </form>
         </div>
     </nav>
+
+    <div class="col" style="margin-left: 50px; margin-top:50px">
+        <div>
+            <button class="col btn btn-primary b_add" data-bs-toggle="modal" data-bs-target="#ModalCat">
+                <i class="bi bi-plus-circle-fill"></i>
+                <br>
+                Agregar Orden
+            </button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ModalCat" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header bg-primary">
+                    <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Nueva Categoria</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="form-modal-NewOrder" method="POST" action="">
+                        <div class="mb-3">
+                            <label for="txtDescripcion" class="form-label">Descripcion</label>
+                            <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
+                            Agregar
+                            <i class="bi bi-arrow-right-circle-fill"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Editar-->
+    <div class="modal fade" id="ModalCatEd" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header bg-primary">
+                    <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Nueva Categoria</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="form-modal-NewOrder" method="POST" action="">
+                        <div class="mb-3">
+                            <label for="txtDescripcion" class="form-label">Descripcion</label>
+                            <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
+                            Agregar
+                            <i class="bi bi-arrow-right-circle-fill"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Eiminar-->
+    <div class="modal fade" id="ModalCatDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header bg-primary">
+                    <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Nueva Categoria</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="form-modal-NewOrder" method="POST" action="">
+                        <div class="mb-3">
+                            <label for="txtDescripcion" class="form-label">Descripcion</label>
+                            <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
+                            Agregar
+                            <i class="bi bi-arrow-right-circle-fill"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="contenedor" style="margin-top: 150px;">
         <div style="height: 500px; overflow-y: auto;">
@@ -45,7 +142,7 @@ $cat = new ControllerCategories();
             </table>
         </div>
         <div>
-            
+
         </div>
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>

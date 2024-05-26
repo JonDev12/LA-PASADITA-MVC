@@ -12,10 +12,9 @@ class ModelCategories
         $this->db = $con->getConnection();
     }
 
-    public function GetAllCategories()
-    {
+    public function GetAllCategories(){
         try {
-            $query = "SELECT IdCategorias, Descripcion, Fecha_Creacion FROM categorias";
+            $query = "SELECT IdCategorias, Descripcion, DATE(Fecha_Creacion) AS Fecha_Creacion FROM categorias";
             $stmt = $this->db->prepare($query);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -25,8 +24,8 @@ class ModelCategories
                 while ($row = $result->fetch_assoc()) {
                     $tableBody .= '<tr>';
                     $tableBody .= '<td class="text-center">' . $row['IdCategorias'] . '</td>';
-                    $tableBody .= '<td>' . $row['Descripcion'] . '</td>';
-                    $tableBody .= '<td>' . $row['Fecha_Creacion'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['Descripcion'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['Fecha_Creacion'] . '</td>';
                     $tableBody .=   "<td class='text-center'>
                                         <div class='text-center'>
                                             <button data-bs-target='modalIngEd' style='width: 40px; height: 40px;border-radius: 10px; background-color: #d9e3eb;'>
@@ -52,4 +51,5 @@ class ModelCategories
             echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
         }
     }
+    
 }
