@@ -115,6 +115,7 @@ $s = new Menu();
     </div>
     
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js_personalizado/Pagesredirect.js"></script>
 </body>
 
 </html>

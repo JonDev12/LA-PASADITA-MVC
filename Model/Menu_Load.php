@@ -12,7 +12,7 @@ class Menu{
         $con = $this->model_session->getConnection();
         // Here you can use the connection $con to perform queries
         // Query all users
-        $sql = "SELECT IdUsuarios, Nombre, ApellidoP, ApellidoM, Tipo_usuario, Fecha_alta FROM usuarios";
+        $sql = "SELECT IdUsuarios, Nombre, ApellidoP, ApellidoM, Tipo_usuario FROM usuarios";
         $result = $con->query($sql);
     
         // Check if the query was successful

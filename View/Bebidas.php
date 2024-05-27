@@ -20,7 +20,7 @@ $beb = new ControllerBebidas();
         <div class="container-fluid ">
             <a class="navbar-brand ">Bebidas</a>
             <form class="d-flex text-center " role="search">
-                <button class="botones " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                <button class="botones " type="button" onclick="ReturnToPrincipal()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-arrow-return-left t_icon "></i>
                 </button>
             </form>
@@ -50,6 +50,7 @@ $beb = new ControllerBebidas();
         </div>
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js_personalizado/ReferencePage.js"></script>
 </body>
 
 </html>

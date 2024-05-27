@@ -14,7 +14,6 @@ class InicioSesion {
         }
 
         return true;
-    
     }
 }
 

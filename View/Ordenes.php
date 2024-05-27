@@ -18,7 +18,7 @@ $ord = new ControllerOrders();
         <div class="container-fluid">
             <a class="navbar-brand">Ordenes</a>
             <form class="d-flex text-center" role="search">
-                <button class="botones" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                <button class="botones" type="button" onclick="ReturnToPrincipal()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-arrow-return-left t_icon"></i>
                 </button>
             </form>
@@ -142,6 +142,7 @@ $ord = new ControllerOrders();
     </div>
 
     <script src="../js_personalizado/Orders.js"></script>
+    <script src="../js_personalizado/ReferencePage.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
