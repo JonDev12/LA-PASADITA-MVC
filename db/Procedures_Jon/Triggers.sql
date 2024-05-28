@@ -1,4 +1,4 @@
-DELIMITER //
+
 
 CREATE TRIGGER InsertHas
 AFTER INSERT ON ordenes
@@ -12,7 +12,3 @@ BEGIN
     INSERT INTO ordenes_has_ventas (IdOrdenes, IdVentas)
     VALUES (NEW.IdOrdenes, LAST_INSERT_ID());
 END;
-
-//
-
-DELIMITER ;
