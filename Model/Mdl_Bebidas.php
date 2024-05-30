@@ -2,7 +2,7 @@
 
 require_once '../Model/Connection.php';
 
-class ModelCategories
+class ModelBebidas
 {
     private $db;
 
@@ -12,9 +12,10 @@ class ModelCategories
         $this->db = $con->getConnection();
     }
 
-    public function GetAllCategories(){
+    public function GetAllBebidas()
+    {
         try {
-            $query = "SELECT IdCategorias, Descripcion, DATE(Fecha_Creacion) AS Fecha_Creacion FROM categorias";
+            $query = "SELECT IdBebidas, Descripcion, Cantidad_ML, Precio, ImagenBebida FROM bebidas";
             $stmt = $this->db->prepare($query);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -23,9 +24,11 @@ class ModelCategories
                 $tableBody = '';
                 while ($row = $result->fetch_assoc()) {
                     $tableBody .= '<tr>';
-                    $tableBody .= '<td class="text-center">' . $row['IdCategorias'] . '</td>';
-                    $tableBody .= '<td class="text-center">' . $row['Descripcion'] . '</td>';
-                    $tableBody .= '<td class="text-center">' . $row['Fecha_Creacion'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['IdBebidas'] . '</td>';
+                    $tableBody .= '<td>' . $row['Descripcion'] . '</td>';
+                    $tableBody .= '<td>' . $row['Cantidad_ML'] . '</td>';
+                    $tableBody .= '<td>' . $row['Precio'] . '</td>';
+                    $tableBody .= '<td>' . $row['ImagenBebida'] . '</td>';
                     $tableBody .=   "<td class='text-center'>
                                         <div class='text-center'>
                                             <button data-bs-target='modalIngEd' style='width: 40px; height: 40px;border-radius: 10px; background-color: #d9e3eb;'>
@@ -51,5 +54,4 @@ class ModelCategories
             echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
         }
     }
-    
 }

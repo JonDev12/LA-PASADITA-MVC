@@ -46,11 +46,11 @@ function UserLog(){
     // Ejecutar la consulta SQL
     if ($con->getConnection()->query($sql) === TRUE) {
         // Registro exitoso
-        echo "Usuario registrado exitosamente";
+        //echo "Usuario registrado exitosamente";
         return true; // Devuelve true si el usuario se registró correctamente
     } else {
         // Error al registrar usuario
-        echo "<script>alert('Atención usuario: Rellene los campos para continuar');</script>";
+        //echo "<script>alert('Atención usuario: Rellene los campos para continuar');</script>";
         return false; // Devuelve false si hubo un error al registrar el usuario
     }
 }

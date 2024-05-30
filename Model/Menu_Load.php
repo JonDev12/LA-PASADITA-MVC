@@ -12,7 +12,7 @@ class Menu{
         $con = $this->model_session->getConnection();
         // Here you can use the connection $con to perform queries
         // Query all users
-        $sql = "SELECT IdUsuarios, Nombre, ApellidoP, ApellidoM, Tipo_usuario, Fecha_alta FROM usuarios";
+        $sql = "SELECT IdUsuarios, Nombre, ApellidoP, ApellidoM, Tipo_usuario, Fecha_Alta FROM usuarios";
         $result = $con->query($sql);
     
         // Check if the query was successful
@@ -26,7 +26,7 @@ class Menu{
             // Iterate over the results
             while ($row = $result->fetch_assoc()) {
                 // Convert the date to the desired format 'd/m/Y'
-                $datetime = date_create($row['Fecha_alta']);
+                $datetime = date_create($row['Fecha_Alta']);
                 $formatted_date = date_format($datetime, 'd/m/Y');
                 
                 // Add a row to the table for each result

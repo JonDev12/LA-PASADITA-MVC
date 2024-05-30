@@ -14,6 +14,14 @@ class ControllerOrders{
         return $this->model->getOrders();
     }
 
+    public function getSaurces(){
+        return $this->model->getSaurces();
+    }
+
+    public function UploadSaurces(){
+        
+    }
+
     public function getOrder($id){
         return $this->model->getOrder($id);
     }
@@ -21,4 +29,5 @@ class ControllerOrders{
     public function getOrdersByUser($id){
         return $this->model->getOrdersByUser($id);
     }
+    
 }

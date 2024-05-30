@@ -1,6 +1,6 @@
 <?php
-require_once '../Model/Mdl_Ingredientes.php';
 require_once '../Model/Connection.php';
+require_once '../Model/MdI_Ingredientes.php';
 
 class ControllerIngredients
 {
@@ -12,8 +12,12 @@ class ControllerIngredients
         $this->mc = new ModelIngredients($con);
     }
 
-    public function ShowData()
-    {
+    public function ShowData(){
         return $this->mc->GetAllIngredients();
     }
+
+    public function ShowUnit(){
+        return $this->mc->ShowUnit();
+    }
 }
+

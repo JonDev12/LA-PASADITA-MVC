@@ -1,5 +1,4 @@
-class Redirect{
-    constructor(){
-        
-    }
+function ReturnToPrincipal(){
+    window.location.href = "../View/MenuPrincipal.php";
 }
+
