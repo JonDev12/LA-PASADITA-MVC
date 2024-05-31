@@ -4,40 +4,48 @@ $con = new Connection();
 
 function UploadOrder(){
     global $con;
+    
+    // Get the data from the form
+    $state = $_POST['state'];
+    $datetime = new DateTime();
+    $date = $datetime->format('Y-m-d');
+    $time = $datetime->format('H:i:s');
+    $count = $_POST['txt_quantity'];
+    $entry = $_POST['cbx_dish'];
+    $ammount = $_POST['txt_ammount'];
 
-    // Check if the key "cbx_state" exists in $_POST
-        // Sanitize the user input
-        $cantidad = $con->getConnection()->real_escape_string($_POST["txt_quantity"]);
-        $monto = $con->getConnection()->real_escape_string($_POST["txt_ammount"]);
-        $datetime = new DateTime();
-        $fecha = $datetime->format('Y-m-d');
-        $hora = $datetime->format('H:i:s');
+    try {
+        // Prepare the SQL statement
+        $sql = "CALL InsertOP_OB(?, ?, ?, ?, ?, ?)";
+        $stmt = $con->getConnection()->prepare($sql);
 
-        // SQL query to insert order
-        $sql = "INSERT INTO Ordenes (Estado, Fecha, Hora, Cantidad, Monto) 
-                VALUES ('En espera', '$fecha', '$hora' ,'$cantidad', '$monto')";
+        // Bind parameters
+        $stmt->bind_param("sssisd", $state, $date, $time, $count, $entry, $ammount);
 
-        // Execute the SQL query
-        if ($con->getConnection()->query($sql) === TRUE) {
-            // Successful registration
-            return true; // Return true if the order was successfully registered
+        // Execute the statement
+        if ($stmt->execute()) {
+            return true;
         } else {
-            // Error registering order
-            return false; // Return false if there was an error registering the order
+            return false;
         }
+
+    } catch (Exception $e) {
+        error_log("Error al ejecutar el procedimiento almacenado: " . $e->getMessage());
+        return false;
+    }
 }
 
 // Check database connection
-if($con->getConnection()->connect_errno){
+if ($con->getConnection()->connect_errno) {
     echo "Failed to connect";
 } else {
     // Check if the form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Try to register the order
         if (UploadOrder()) {
-            return true;
+            echo "Order registered successfully.";
         } else {
-            return false;
+            echo "Failed to register order.";
         }
     }
 }

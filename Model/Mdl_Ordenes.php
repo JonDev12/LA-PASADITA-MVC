@@ -67,6 +67,22 @@ class ModelOrders{
         }
     }
 
+    public function getPrices(){
+        try{
+            $sql = 'SELECT Precio FROM platillos';
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $precios[$row["id"]] = $row["precio"];
+                }
+            }
+        }catch(Exception $e){
+
+        }
+    }
+
     public function getOrder($id){
         $query = $this->db->prepare('SELECT * FROM ordenes WHERE id_orden = ?');
         $query->execute(array($id));
