@@ -1,13 +1,16 @@
 <?php
 require_once '../Model/Mdl_Ordenes.php';
+require_once '../Modals/ModalOrder.php';
 require_once '../Model/Connection.php';
 
 class ControllerOrders{
     private $model;
+    private $modal;
 
     public function __construct(){
         $con = new Connection();
         $this->model = new ModelOrders($con);
+        
     }
 
     public function getOrders(){
@@ -22,12 +25,12 @@ class ControllerOrders{
         
     }
 
-    public function getOrder($id){
-        return $this->model->getOrder($id);
+    public function editOrder($id, $estado, $fecha, $hora, $cantidad, $monto){
+        $this->model->editOrder($id, $estado, $fecha, $hora, $cantidad, $monto);
     }
-
-    public function getOrdersByUser($id){
-        return $this->model->getOrdersByUser($id);
+    
+    public function deleteOrder($id){
+        $this->model->deleteOrder($id);
     }
     
 }

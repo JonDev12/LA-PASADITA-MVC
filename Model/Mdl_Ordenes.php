@@ -25,29 +25,26 @@ class ModelOrders{
                     $tableBody .= '<td class="text-center">' . $row['hora'] . '</td>';
                     $tableBody .= '<td class="text-center">' . $row['cantidad'] . '</td>';
                     $tableBody .= '<td class="text-center">' . $row['monto'] . '</td>';
-                    $tableBody .= '<td>
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditOrder" onclick="editOrder()">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </button>
-                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteOrder" onclick="">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </td>';
+                    // Botones de editar y eliminar
+                    $tableBody .= '<td>';
+                    $tableBody .= '<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditOrder" onclick="editOrder(' . $row['IdOrdenes'] . ')">';
+                    $tableBody .= '<i class="bi bi-pencil-square"></i> ';
+                    $tableBody .= '</button>';
+                    $tableBody .= '<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteOrder" onclick="deleteOrder(' . $row['IdOrdenes'] . ')">';
+                    $tableBody .= '<i class="bi bi-trash"></i> ';
+                    $tableBody .= '</button>';
+                    $tableBody .= '</td>';
                     $tableBody .= '</tr>';
                 }
                 return $tableBody;
             } else {
-                return '
-                        <tr class="text-center">
-                            <td colspan="7" class="text-center">
-                                <h7 class="text-center">Sin datos que mostrar</h7>
-                            </td>
-                        </tr>';
+                return '<tr class="text-center"><td colspan="7" class="text-center"><h7 class="text-center">Sin datos que mostrar</h7></td></tr>';
             }
         } catch (Exception $e) {
             echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
         }    
     }
+    
     
     public function getSaurces(){
         try{
@@ -83,33 +80,14 @@ class ModelOrders{
         }
     }
 
-    public function getOrder($id){
-        $query = $this->db->prepare('SELECT * FROM ordenes WHERE id_orden = ?');
-        $query->execute(array($id));
-        $order = $query->fetch(PDO::FETCH_OBJ);
-        return $order;
+    public function editOrder($id, $estado, $fecha, $hora, $cantidad, $monto){
+        $query = $this->db->prepare('UPDATE ordenes SET estado = ?, fecha = ?, hora = ?, cantidad = ?, monto = ? WHERE IdOrdenes = ?');
+        $query->execute(array($estado, $fecha, $hora, $cantidad, $monto, $id));
     }
-
-    public function getOrdersByUser($id){
-        $query = $this->db->prepare('SELECT * FROM ordenes WHERE id_usuario = ?');
-        $query->execute(array($id));
-        $orders = $query->fetchAll(PDO::FETCH_OBJ);
-        return $orders;
-    }
-
-    public function addOrder($id_usuario, $fecha, $total){
-        $query = $this->db->prepare('INSERT INTO ordenes(id_usuario, fecha, total) VALUES(?,?,?)');
-        $query->execute(array($id_usuario, $fecha, $total));
-        return $this->db->lastInsertId();
-    }
-
+    
     public function deleteOrder($id){
-        $query = $this->db->prepare('DELETE FROM ordenes WHERE id_orden = ?');
+        $query = $this->db->prepare('DELETE FROM ordenes WHERE IdOrdenes = ?');
         $query->execute(array($id));
     }
-
-    public function updateOrder($id, $id_usuario, $fecha, $total){
-        $query = $this->db->prepare('UPDATE ordenes SET id_usuario = ?, fecha = ?, total = ? WHERE id_orden = ?');
-        $query->execute(array($id_usuario, $fecha, $total, $id));
-    }
+    
 }
