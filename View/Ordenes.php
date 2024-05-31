@@ -73,9 +73,9 @@ $ord = new ControllerOrders();
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="txt_quantity" class="form-label">Cantidad</label>
+                                <label for="txt_quantity" class="form-label">Cantidad:</label>
                                 <input type="number" class="form-control" id="txt_quantity" name="txt_quantity">
-                                <label for="txt_ammount" class="form-label">Monto del platillo</label>
+                                <label for="txt_ammount" class="form-label">Precio:</label>
                                 <input type="text" class="form-control" id="txt_ammount" name="txt_ammount" placeholder="$00.00">
                             </div>
                             <button type="button" class="btn btn-primary" onclick="ValidateOrder()">

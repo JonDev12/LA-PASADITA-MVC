@@ -60,12 +60,15 @@
                     <input type="password" class="controls2" id="inputPassword" style="margin-left: 1rem; width: calc(100% - 2rem);" name="txt_pwd" autocomplete="new-password">
                 </div>
             </div>
-            <div class="text-center" style="margin: 1.5rem">
-                <button class="btn btn-primary" type="submit" onclick="ValidateUserEntry()">Enviar Datos</button>
+            <div  class="text-center" style="margin: 1.5rem">
+                <button class="btn btn-primary" type="submit" onclick="ValidateUserEntry()"> Enviar Datos </button>
+                <button class="btn btn-primary" type="button" onclick="redireccion_IniciarSesion()"> Volver </button>
             </div>
+            
         </form>
     </div>
     <script src="../js_personalizado/UserValidation.js"></script>
+    <script src="../js_personalizado/ReferencePage.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 </body>
 
