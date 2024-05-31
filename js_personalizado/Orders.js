@@ -5,7 +5,7 @@ function ValidateOrder(){
     const price = document.getElementById('txt_price').value;
 
     if(state === '' || dish === '' || quantity === '' || price === ''){
-        alert('All fields are required');
+        alert('Llena todos los campos por favor.');
         return false;
     }
 }

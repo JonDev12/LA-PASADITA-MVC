@@ -21,6 +21,7 @@ function redireccion_menu() {
     window.location.href = "../View/Registro.php";
 }
 
+
 const ValidateUser = new InicioSesion();
 document.getElementById('Sesion').addEventListener('submit', function(event) {
     if (!ValidateUser.OnSesion()) {

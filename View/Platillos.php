@@ -22,7 +22,6 @@ $platillos = new ControllerSaurces();
                 <button class="botones" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" onclick="ReturnToPrincipal()">
                     <i class="bi bi-arrow-return-left t_icon"></i>
                 </button>
-                </button>
             </form>
         </div>
     </nav>
