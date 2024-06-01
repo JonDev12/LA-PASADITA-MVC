@@ -30,7 +30,7 @@ function UploadOrder(){
         }
 
     } catch (Exception $e) {
-        error_log("Error al ejecutar el procedimiento almacenado: " . $e->getMessage());
+        echo("Error al ejecutar el procedimiento almacenado: " . $e->getMessage());
         return false;
     }
 }

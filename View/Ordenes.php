@@ -4,6 +4,7 @@ $ord = new ControllerOrders();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +14,15 @@ $ord = new ControllerOrders();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Ordenes</title>
 </head>
+
 <body>
     <nav class="barra navbar">
         <div class="container-fluid">
             <a class="navbar-brand">Ordenes</a>
             <form class="d-flex text-center" role="search">
+                <button class="botones" type="button" onclick="ReturnToPrincipal()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                </button>
+
                 <button class="botones" type="button" onclick="ReturnToPrincipal()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-arrow-return-left t_icon"></i>
                 </button>
@@ -58,10 +63,10 @@ $ord = new ControllerOrders();
                     </div>
 
                     <div class="modal-body">
-                        <form id="form-modal-NewOrder" method="POST" action="../Modals/ModalOrder.php">
+                        <form id="form-modal-NewOrder" method="POST" action="../Modals/ModalOrder.php" onsubmit="return ValidateOrder()">
                             <div class="mb-3">
                                 <label for="state" class="form-label">Estado de Orden</label>
-                                <select class="form-select" name="state" id="state" aria-label="Default select example">
+                                <select class="form-select" name="state" id="cbx_state" aria-label="Default select example">
                                     <option selected>En espera</option>
                                 </select>
                             </div>
@@ -78,7 +83,7 @@ $ord = new ControllerOrders();
                                 <label for="txt_ammount" class="form-label">Precio:</label>
                                 <input type="text" class="form-control" id="txt_ammount" name="txt_ammount" placeholder="$00.00">
                             </div>
-                            <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
+                            <button type="submit" class="btn btn-primary">
                                 Agregar
                                 <i class="bi bi-arrow-right-circle-fill"></i>
                             </button>
@@ -90,6 +95,53 @@ $ord = new ControllerOrders();
                 </div>
             </div>
         </div>
+
+
+        <div class="modal fade" id="modalOrderEdit" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header bg-primary">
+                        <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white"></i>
+                        <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Editar Orden</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="form-modal-NewOrder" method="POST" action="../Modals/ModalOrder.php" onsubmit="return ValidateOrder()">
+                            <div class="mb-3">
+                                <label for="state" class="form-label">Estado de Orden</label>
+                                <select class="form-select" name="state" id="cbx_state" aria-label="Default select example">
+                                    <option selected>En espera</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cbx_dish" class="form-label">Platillo</label>
+                                <select class="form-select" name="cbx_dish" id="cbx_dish" aria-label="Default select example">
+                                    <option selected>Seleccionar</option>
+                                    <?php echo $ord->getSaurces(); ?>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="txt_quantity" class="form-label">Cantidad:</label>
+                                <input type="number" class="form-control" id="txt_quantity" name="txt_quantity">
+                                <label for="txt_ammount" class="form-label">Precio:</label>
+                                <input type="text" class="form-control" id="txt_ammount" name="txt_ammount" placeholder="$00.00">
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                Agregar
+                                <i class="bi bi-arrow-right-circle-fill"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <div class="modal fade" id="modalCalc" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -145,4 +197,5 @@ $ord = new ControllerOrders();
     <script src="../js_personalizado/ReferencePage.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 </body>
+
 </html>
