@@ -1,6 +1,14 @@
 <?php
 require_once '../Controller/Ctl_Ventas.php';
+require_once '../Model/Mdl_Ventas.php'; // Incluir el archivo que contiene la clase ModelSales
 $sales = new ControllerSales();
+// Instanciar la clase ModelSales
+$modelSales = new ModelSales(new Connection());
+
+// Llamar al método generatePDFReport() cuando se hace clic en el botón "Obtener Reporte"
+if(isset($_POST['obtener_reporte'])) {
+    $modelSales->generatePDFReport();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +43,7 @@ $sales = new ControllerSales();
                 <br>
                 Calcular Ventas
             </button>
-            <button class="col btn btn-success b_venta" data-bs-target="#modalRegistro">
+            <button class="col btn btn-success b_venta" data-bs-target="#modalRegistro" name="obtener_reporte">
                 <br>
                 Obtener Reporte
             </button>
@@ -76,12 +84,6 @@ $sales = new ControllerSales();
             
         </div>
         <div>
-            <button class="col btn btn-success b_venta" data-bs-toggle="modal" data-bs-target="#modalRegistro">
-                <i class="bi bi-calculator"></i>
-                <br>
-                Obtener Reporte
-            </button>
-
         </div>
     </div>
 
@@ -104,9 +106,11 @@ $sales = new ControllerSales();
             </table>
         </div>
     </div>
+    <div  align="center" ><a  href= "../fpdf/ReporteVentas.php" target = "_blank">Obtener Reporte</div>
 
     <script src="../js_personalizado/ReferencePage.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="reportes.js"></script>
 </body>
 
 </html>

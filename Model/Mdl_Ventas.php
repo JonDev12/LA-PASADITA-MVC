@@ -1,7 +1,6 @@
 <?php
 
 require_once '../Model/Connection.php';
-
 class ModelSales{
     private $db;
 
@@ -48,6 +47,4 @@ class ModelSales{
             echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
         }    
     }
-
-    
 }
