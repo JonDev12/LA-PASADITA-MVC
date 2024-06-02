@@ -5,6 +5,7 @@ $sales = new ControllerSales();
 // Instanciar la clase ModelSales
 $modelSales = new ModelSales(new Connection());
 
+
 // Llamar al método generatePDFReport() cuando se hace clic en el botón "Obtener Reporte"
 if(isset($_POST['obtener_reporte'])) {
     $modelSales->generatePDFReport();
