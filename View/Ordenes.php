@@ -47,7 +47,7 @@ $ord = new ControllerOrders();
             <div class="row" style="position: absolute; top: 125px; left: 340px;">
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="date" placeholder="Search" aria-label="Search" style="width:800px">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
             </div>
         </div>
@@ -96,23 +96,24 @@ $ord = new ControllerOrders();
             </div>
         </div>
 
-
         <div class="modal fade" id="modalOrderEdit" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
 
-                    <div class="modal-header bg-primary">
-                        <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white"></i>
+                    <div class="modal-header bg-secondary">
+                        <i class="bi bi-pencil-square" style="font-size: 25px; color:white"></i>
                         <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Editar Orden</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
-                        <form id="form-modal-NewOrder" method="POST" action="../Modals/ModalOrder.php" onsubmit="return ValidateOrder()">
+                        <form id="form-modal-NewOrder" method="POST"  onsubmit="return ValidateOrder()">
                             <div class="mb-3">
                                 <label for="state" class="form-label">Estado de Orden</label>
                                 <select class="form-select" name="state" id="cbx_state" aria-label="Default select example">
                                     <option selected>En espera</option>
+                                    <option>En preparacion</option>
+                                    <option>Entregado</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -141,13 +142,35 @@ $ord = new ControllerOrders();
             </div>
         </div>
 
+        <div class="modal fade" id="modalOrderDel" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
 
+                    <div class="modal-header bg-danger">
+                        <i class="bi bi-trash3-fill" style="font-size: 25px; color:white"></i>
+                        <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Elimnar Orden</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="form-modal-NewOrder" method="POST" action="../Modals/ModalOrder.php" onsubmit="return ValidateOrder()">
+                        ¿Deseas eliminar la orden?
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Eliminar Orden</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="modal fade" id="modalCalc" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalRegistroLabel">Calcular Venta</h5>
+                    <div class="modal-header bg-success">
+                        <i class="bi bi-calculator" style="font-size: 25px; color:white; margin-right: 10px"></i>
+                        <h5 class="modal-title" id="modalRegistroLabel" style="color: white;">Calcular Ordenes</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -158,7 +181,7 @@ $ord = new ControllerOrders();
                                 <label for="countProdDate2" class="form-label">Hasta:</label>
                                 <input type="date" class="form-control" id="countProdDate2" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary" data-bs-target="#ModalCalcPd">
                                 Calcular
                                 <i class="bi bi-check-circle-fill"></i>
                             </button>

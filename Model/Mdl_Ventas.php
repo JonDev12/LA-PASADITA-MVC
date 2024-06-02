@@ -11,7 +11,7 @@ class ModelSales{
 
     public function getAllSales(){
         try {
-            $query = "SELECT IdVentas, fecha, hora, cantidad, total FROM ventas";
+            $query = "SELECT IdVentas, fecha, hora, cantidad, total FROM ventas ORDER BY IdVentas DESC";
             $stmt = $this->db->prepare($query);
             $stmt->execute();   
             $result = $stmt->get_result();
@@ -26,10 +26,10 @@ class ModelSales{
                     $tableBody .= '<td class="text-center">' . $row['cantidad'] . '</td>';
                     $tableBody .= '<td class="text-center">' . $row['total'] . '</td>';
                     $tableBody .= '<td>
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditCategory">
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistroEd">
                                         <i class="bi bi-pencil-square"></i>
                                     </button>
-                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteCategory">
+                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalRegistroDe">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </td>';

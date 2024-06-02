@@ -21,8 +21,7 @@ $s = new Menu();
             <a class="navbar-brand">Menu Principal</a>
             <form class="d-flex text-center" role="search">
                 <div class="dropdown">
-                    <button class="dropdown-toggle botones" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <button class="dropdown-toggle botones" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-gear-wide"></i>
                     </button>
                     <ul class="dropdown-menu " style="background-color: #c4f1fc;">
@@ -31,8 +30,7 @@ $s = new Menu();
                         <li><a class="dropdown-item" href="#">Salir</a></li>
                     </ul>
                 </div>
-                <button class="botones" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                <button class="botones" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-menu-button-wide t_icon"></i>
                 </button>
             </form>
@@ -56,18 +54,15 @@ $s = new Menu();
                 </thead>
                 <tbody>
                     <?php
-                        echo $s->GetUsers();
+                    echo $s->GetUsers();
                     ?>
                 </tbody>
-                <button class="boton-form" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="bi bi-plus"></i>
-                </button>
+                <br>
             </table>
         </div>
     </div>
-    
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-        aria-labelledby="offcanvasWithBothOptionsLabel">
+
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header" style="background-color: #c4f1fc;">
             <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Menu de Opciones</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -91,7 +86,7 @@ $s = new Menu();
                     <span class="titulos">Ingredientes</span>
                 </button>
                 <button class="botones-offcanvas" id="Platillos">
-                    <img src="../images/pierna-de-pollo.png" class="iconos" alt="" >
+                    <img src="../images/pierna-de-pollo.png" class="iconos" alt="">
                     <span class="titulos">Platillos</span>
                 </button>
                 <button class="botones-offcanvas" id="Bebidas">
@@ -113,7 +108,85 @@ $s = new Menu();
             </ul>
         </div>
     </div>
-    
+
+    <div class="modal fade" id="ModalUsAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ModalUsEd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary">
+                    <i class="bi bi-pencil-square" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Editar Informacion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="form_user" method="POST" ">
+                        <div class="mb-3">
+                            <label for="name">Nombre</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                            <label for="lastname">Apellido Paterno</label>
+                            <input type="text" class="form-control" id="lastname" name="lastname">
+                            <label for="lastname2">Apellido Materno</label>
+                            <input type="text" class="form-control" id="lastname2" name="lastname2">
+                            <label for="type">Cargo</label>
+                            <select class="form-control">
+                                <option value="1">Administrador</option>
+                                <option value="2" selected>Empleado</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Agregar
+                            <i class="bi bi-arrow-right-circle-fill"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ModalUsDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header bg-danger">
+                    <i class="bi bi-trash3-fill" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Elimnar Categoria</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="form-modal-NewOrder" method="POST" action="../Modals/ModalOrder.php" onsubmit="return ValidateOrder()">
+                        ¿Deseas eliminar la Categoria actual?
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Eliminar Orden</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js_personalizado/Pagesredirect.js"></script>
 </body>

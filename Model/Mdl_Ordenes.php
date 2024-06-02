@@ -13,7 +13,7 @@ class ModelOrders
     public function getOrders()
     {
         try {
-            $query = "SELECT IdOrdenes, estado, fecha, hora, cantidad, monto FROM ordenes";
+            $query = "SELECT IdOrdenes, estado, fecha, hora, cantidad, monto FROM ordenes ORDER BY IdOrdenes DESC";
             $stmt = $this->db->prepare($query);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -33,7 +33,7 @@ class ModelOrders
                     $tableBody .= '<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalOrderEdit" onclick="editOrder(' . $row['IdOrdenes'] . ')">';
                     $tableBody .= '<i class="bi bi-pencil-square"></i> ';
                     $tableBody .= '</button>';
-                    $tableBody .= '<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteOrder" onclick="deleteOrder(' . $row['IdOrdenes'] . ')">';
+                    $tableBody .= '<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalOrderDel" onclick="deleteOrder(' . $row['IdOrdenes'] . ')">';
                     $tableBody .= '<i class="bi bi-trash"></i> ';
                     $tableBody .= '</button>';
                     $tableBody .= '</td>';

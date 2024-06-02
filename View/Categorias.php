@@ -33,7 +33,7 @@ $cat = new ControllerCategories();
             <button class="col btn btn-primary b_add" data-bs-toggle="modal" data-bs-target="#ModalCat">
                 <i class="bi bi-plus-circle-fill"></i>
                 <br>
-                Agregar Orden
+                Agregar Categoria
             </button>
         </div>
     </div>
@@ -66,60 +66,54 @@ $cat = new ControllerCategories();
             </div>
         </div>
     </div>
-<!--Editar-->
+    <!--Editar-->
     <div class="modal fade" id="ModalCatEd" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
-                <div class="modal-header bg-primary">
-                    <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white"></i>
-                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Nueva Categoria</h5>
+                <div class="modal-header bg-secondary">
+                    <i class="bi bi-pencil-square" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Editar Categoria</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
-                    <form id="form-modal-NewOrder" method="POST" action="">
+                    <form id="form-modal-NewOrder" method="POST" onsubmit="return ValidateOrder()">
                         <div class="mb-3">
                             <label for="txtDescripcion" class="form-label">Descripcion</label>
                             <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion">
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
+                        <button type="submit" class="btn btn-primary">
                             Agregar
                             <i class="bi bi-arrow-right-circle-fill"></i>
                         </button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-<!--Eiminar-->
+    <!--Eiminar-->
     <div class="modal fade" id="ModalCatDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
-                <div class="modal-header bg-primary">
-                    <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white"></i>
-                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Nueva Categoria</h5>
+                <div class="modal-header bg-danger">
+                    <i class="bi bi-trash3-fill" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Elimnar Orden</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
-                    <form id="form-modal-NewOrder" method="POST" action="">
-                        <div class="mb-3">
-                            <label for="txtDescripcion" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion">
-                        </div>
-                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
-                            Agregar
-                            <i class="bi bi-arrow-right-circle-fill"></i>
-                        </button>
+                    <form id="form-modal-NewOrder" method="POST" action="../Modals/ModalOrder.php" onsubmit="return ValidateOrder()">
+                        ¿Deseas eliminar la categoria?
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-danger">Eliminar Orden</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

@@ -72,6 +72,57 @@ $sales = new ControllerSales();
         </div>
     </div>
 
+    <div class="modal fade" id="modalRegistroEd" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary">
+                    <i class="bi bi-pencil-square" style="font-size: 25px; color:white; margin-right: 10px"></i>
+                    <h5 class="modal-title" id="modalRegistroLabel" style="color: white;">Editar Venta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Modal body content goes here -->
+                    <form>
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Cantidad:</label>
+                            <input type="number" class="form-control" id="quantity">
+                            <label for="ammount" class="form-control">Monto</label>
+                            <input type="text" class="form-control" id="ammount" placeholder="$00.00">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Calcular</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- Modal footer content goes here -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalRegistroDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header bg-danger">
+                        <i class="bi bi-trash3-fill" style="font-size: 25px; color:white"></i>
+                        <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Elimnar Orden</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="form-modal-NewOrder" method="POST" action="../Modals/ModalOrder.php" onsubmit="return ValidateOrder()">
+                        ¿Deseas eliminar la venta?
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Eliminar Orden</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+
     <div class="contenedor" style="margin-top: 150px;">
         <div style="height: 500px; overflow-y: auto;">
             <table border="1" id="table-categories">

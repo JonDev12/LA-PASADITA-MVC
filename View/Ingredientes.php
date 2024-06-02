@@ -20,7 +20,7 @@ $ing = new ControllerIngredients();
         <div class="container-fluid">
             <a class="navbar-brand">Ingredientes</a>
             <form class="d-flex text-center" role="search">
-                
+
                 <button class="botones" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-arrow-return-left t_icon"></i>
                 </button>
@@ -38,7 +38,7 @@ $ing = new ControllerIngredients();
         </div>
     </div>
 
-    
+
 
     <div class="modal fade" id="modalIng" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -79,83 +79,48 @@ $ing = new ControllerIngredients();
         </div>
     </div>
 
-    <div class="modal fade" id="modalIngEd" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+    <div class="modal fade" id="ModalIngEd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-
-                <div class="modal-header bg-primary">
-                    <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white"></i>
-                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Registrar Ingrediente</h5>
+                <div class="modal-header bg-secondary">
+                    <i class="bi bi-pencil-square" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Editar Ingrediente</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <div class="modal-body">
-                    <form id="form-modal-NewOrder" method="POST" action="">
+                    <form id="form-modal-NewOrder" method="POST" onsubmit="return ValidateOrder()">
                         <div class="mb-3">
-                            <label for="Desc" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" id="Desc">
+                            <label for="txtDescripcion" class="form-label">Descripcion</label>
+                            <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion">
                         </div>
-                        <div class="mb-3">
-                            <label for="ammount" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" id="ammount">
-                        </div>
-                        <div class="mb-3">
-                            <label for="quantity" class="form-label">Unidad de Medida</label>
-                            <select name="quantity" class="form-control" id="quantity">
-                                <?php echo $ing->ShowUnit(); ?>
-                            </select>
-                        </div>
-                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
-                            Agregar
-                            <i class="bi bi-arrow-right-circle-fill"></i>
-                        </button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Editar</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="modalIngDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+    <div class="modal fade" id="ModalIngDe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-
-                <div class="modal-header bg-primary">
-                    <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white"></i>
-                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Registrar Ingrediente</h5>
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <div class="modal-body">
-                    <form id="form-modal-NewOrder" method="POST" action="">
-                        <div class="mb-3">
-                            <label for="Desc" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" id="Desc">
-                        </div>
-                        <div class="mb-3">
-                            <label for="ammount" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" id="ammount">
-                        </div>
-                        <div class="mb-3">
-                            <label for="quantity" class="form-label">Unidad de Medida</label>
-                            <select name="quantity" class="form-control" id="quantity">
-                                <?php echo $ing->ShowUnit(); ?>
-                            </select>
-                        </div>
-                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
-                            Agregar
-                            <i class="bi bi-arrow-right-circle-fill"></i>
-                        </button>
-                    </form>
+                    ...
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
+
 
     <div class="contenedor" style="margin-top: 70px;">
         <div style="height: 400px; overflow-y: auto;">
