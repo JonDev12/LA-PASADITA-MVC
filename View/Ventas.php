@@ -81,7 +81,7 @@ if(isset($_POST['obtener_reporte'])) {
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
-            
+            d
         </div>
         <div>
         </div>
