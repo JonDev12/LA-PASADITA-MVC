@@ -13,12 +13,5 @@ class ControllerDelivery{
     public function getDeliveries(){
         return $this->model->getOrders();
     }
-
-    public function getDelivery($id){
-        return $this->model->getOrder($id);
-    }
-
-    public function getDeliveriesByUser($id){
-        return $this->model->getOrdersByUser($id);
-    }
+    
 }
