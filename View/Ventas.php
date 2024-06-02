@@ -73,7 +73,7 @@ if(isset($_POST['obtener_reporte'])) {
                             <label for="productName" class="form-label">Hasta:</label>
                             <input type="date" class="form-control" id="countProdDate2" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Calcular</button>
+                        <button type="submit" class="btn btn-primary">CalcularV</button>
                     </form>
                 </div>
                 <div class="modal-footer">
