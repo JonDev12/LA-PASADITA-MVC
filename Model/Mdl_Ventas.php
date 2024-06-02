@@ -48,4 +48,6 @@ class ModelSales{
             echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
         }    
     }
+
+    
 }

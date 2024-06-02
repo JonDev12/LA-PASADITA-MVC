@@ -35,6 +35,10 @@ $sales = new ControllerSales();
                 <br>
                 Calcular Ventas
             </button>
+            <button class="col btn btn-success b_venta" data-bs-target="#modalRegistro">
+                <br>
+                Obtener Reporte
+            </button>
 
             <div class="row" style="position: absolute; top: 125px; left: 340px;">
                 <form class="d-flex" role="search">
@@ -69,6 +73,15 @@ $sales = new ControllerSales();
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
+            
+        </div>
+        <div>
+            <button class="col btn btn-success b_venta" data-bs-toggle="modal" data-bs-target="#modalRegistro">
+                <i class="bi bi-calculator"></i>
+                <br>
+                Obtener Reporte
+            </button>
+
         </div>
     </div>
 
