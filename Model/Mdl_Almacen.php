@@ -25,17 +25,17 @@ class ModelAlmacen
                 while ($row = $result->fetch_assoc()) {
                     $tableBody .= '<tr>';
                     $tableBody .= '<td class="text-center">' . $row['IdAlmacen'] . '</td>';
-                    $tableBody .= '<td>' . $row['Descripcion'] . '</td>';
-                    $tableBody .= '<td>' . $row['Total'] . '</td>';
-                    $tableBody .= '<td>' . $row['Disponibles'] . '</td>';
-                    $tableBody .= '<td>' . $row['Defectuosos'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['Descripcion'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['Total'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['Disponibles'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['Defectuosos'] . '</td>';
                     $tableBody .=   "<td class='text-center'>
                                         <div class='text-center'>
-                                            <button data-bs-target='modalIngEd' style='width: 40px; height: 40px;border-radius: 10px; background-color: #d9e3eb;'>
-                                                <i class='bi bi-pen-fill'></i>
+                                                <button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#ModalBebEd'>
+                                                <i class='bi bi-pencil-square'></i>
                                             </button>
-                                            <button data-bs-target='modalIngDe' style='width: 40px; height: 40px;border-radius: 10px; background-color: red;'>
-                                                <i class='bi bi-trash3-fill'></i>
+                                            <button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#ModalBebDe'>
+                                                <i class='bi bi-trash'></i>
                                             </button>
                                         </div>
                                     </td>";

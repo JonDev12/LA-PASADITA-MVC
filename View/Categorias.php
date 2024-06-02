@@ -102,7 +102,7 @@ $cat = new ControllerCategories();
 
                 <div class="modal-header bg-danger">
                     <i class="bi bi-trash3-fill" style="font-size: 25px; color:white"></i>
-                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Elimnar Orden</h5>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Elimnar Categoria</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -112,8 +112,8 @@ $cat = new ControllerCategories();
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger">Eliminar Orden</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Eliminar Categori</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>

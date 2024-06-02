@@ -88,10 +88,16 @@ $ing = new ControllerIngredients();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="form-modal-NewOrder" method="POST" onsubmit="return ValidateOrder()">
+                    <form id="form_edit_ing" method="POST">
                         <div class="mb-3">
-                            <label for="txtDescripcion" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion">
+                            <label for="desc">Descripcion</label>
+                            <input type="text" class="form-control" id="desc">
+                            <label for="ammount" class="form-label">Cantidad</label>
+                            <input type="number" class="form-control" id="ammount">
+                            <label for="Med">Unidad de Medida</label>
+                            <select name="Med" class="form-control" id="Med">
+                                <?php echo $ing->ShowUnit(); ?>
+                            </select>
                         </div>
                     </form>
                 </div>
@@ -106,16 +112,21 @@ $ing = new ControllerIngredients();
     <div class="modal fade" id="ModalIngDe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+
+                <div class="modal-header bg-danger">
+                    <i class="bi bi-trash3-fill" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Elimnar Ingrediente</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+
                 <div class="modal-body">
-                    ...
+                    <form id="form_delete_ing" method="POST">
+                        ¿Deseas eliminar el ingrediente?
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-danger">Eliminar ingrediente</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>

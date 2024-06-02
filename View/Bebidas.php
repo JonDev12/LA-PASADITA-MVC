@@ -37,6 +37,7 @@ $beb = new ControllerBebidas();
                     <th scope="col" class="text-center encabezado">Cantidad_ML</th>
                     <th scope="col" class="text-center encabezado">Precio</th>
                     <th scope="col" class="text-center encabezado">Imagen_bebida</th>
+                    <th scope="col" class="text-center encabezado">Acciones</th>
                 </thead>
                 <tbody>
                     <?php
