@@ -28,7 +28,8 @@ $s = new Menu();
                     <ul class="dropdown-menu " style="background-color: #c4f1fc;">
                         <li><a class="dropdown-item" href="#">Perfil</a></li>
                         <li><a class="dropdown-item" href="#">Configuracion</a></li>
-                        <li><a class="dropdown-item" href="#">Salir</a></li>
+                        <li><a class="dropdown-item" href="#">Respaldo de BD</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="redireccion_IniciarSesion()">Salir</a></li>
                     </ul>
                 </div>
                 <button class="botones" type="button" data-bs-toggle="offcanvas"
@@ -116,6 +117,7 @@ $s = new Menu();
     
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js_personalizado/Pagesredirect.js"></script>
+    <script src="../js_personalizado/ReferencePage.js"></script>
 </body>
 
 </html>

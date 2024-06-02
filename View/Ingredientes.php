@@ -21,7 +21,7 @@ $ing = new ControllerIngredients();
             <a class="navbar-brand">Ingredientes</a>
             <form class="d-flex text-center" role="search">
                 
-                <button class="botones" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                <button class="botones" type="button" onclick="ReturnToPrincipal()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-arrow-return-left t_icon"></i>
                 </button>
             </form>
@@ -176,6 +176,7 @@ $ing = new ControllerIngredients();
     </div>
 
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js_personalizado/ReferencePage.js"></script>
 </body>
 
 </html>
