@@ -38,8 +38,6 @@ $ing = new ControllerIngredients();
         </div>
     </div>
 
-    
-
     <div class="modal fade" id="modalIng" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
