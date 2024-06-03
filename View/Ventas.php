@@ -1,6 +1,13 @@
 <?php
 require_once '../Controller/Ctl_Ventas.php';
 $sales = new ControllerSales();
+// Instanciar la clase ModelSales
+$modelSales = new ModelSales(new Connection());
+
+// Llamar al método generatePDFReport() cuando se hace clic en el botón "Obtener Reporte"
+if(isset($_POST['obtener_reporte'])) {
+    $modelSales->generatePDFReport();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,6 +76,7 @@ $sales = new ControllerSales();
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
+            
         </div>
     </div>
 
