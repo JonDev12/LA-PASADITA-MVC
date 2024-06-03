@@ -2,6 +2,14 @@
 require_once '../Controller/Ctl_Ventas.php';
 require_once '../Model/Mdl_Ventas.php'; // Incluir el archivo que contiene la clase ModelSales
 $sales = new ControllerSales();
+// Instanciar la clase ModelSales
+$modelSales = new ModelSales(new Connection());
+
+
+// Llamar al método generatePDFReport() cuando se hace clic en el botón "Obtener Reporte"
+if(isset($_POST['obtener_reporte'])) {
+    $modelSales->generatePDFReport();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
