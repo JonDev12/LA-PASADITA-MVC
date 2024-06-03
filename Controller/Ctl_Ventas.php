@@ -14,6 +14,10 @@ class ControllerSales{
         return $this->model->getAllSales();
     }
 
+    public function GenPDF(){
+        return $this->model->GenPDF();
+    }
+
     public function getSale($id){
         //return $this->model->getSales($id);
     }

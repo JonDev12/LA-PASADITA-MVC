@@ -1,6 +1,5 @@
 <?php
 require_once '../Controller/Ctl_Ventas.php';
-require_once '../Model/Mdl_Ventas.php'; // Incluir el archivo que contiene la clase ModelSales
 $sales = new ControllerSales();
 ?>
 <!DOCTYPE html>
@@ -36,10 +35,7 @@ $sales = new ControllerSales();
                 <br>
                 Calcular Ventas
             </button>
-            <button class="col btn btn-success b_venta" data-bs-target="#modalRegistro" name="obtener_reporte">
-                <br>
-                Obtener Reporte
-            </button>
+            
 
             <div class="row" style="position: absolute; top: 125px; left: 340px;">
                 <form class="d-flex" role="search">
@@ -99,7 +95,10 @@ $sales = new ControllerSales();
             </table>
         </div>
     </div>
-    <div  align="center" ><a  href= "../fpdf/ReporteVentas.php" target = "_blank">Obtener Reporte</div>
+    
+    <div> 
+        <?php echo $sales->GenPDF(); ?> 
+    </div>
 
     <script src="../js_personalizado/ReferencePage.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
