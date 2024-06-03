@@ -94,7 +94,7 @@ $s = new Menu();
         </div>
     </div>
 
-    <div class="contenedor" style="margin-top: 150px;">
+    <div class="contenedor" style="margin-top: 190px;">
         <div style="height: 500px; overflow-y: auto;">
             <table border="1">
                 <thead>
