@@ -16,7 +16,7 @@ $beb = new ControllerBebidas();
 </head>
 
 <body>
-    <nav class="barra navbar" >
+    <nav class="barra navbar">
         <div class="container-fluid ">
             <a class="navbar-brand ">Bebidas</a>
             <form class="d-flex text-center " role="search">
@@ -27,6 +27,124 @@ $beb = new ControllerBebidas();
         </div>
     </nav>
 
+    <div class="col" style="margin-left: 50px; margin-top:50px">
+        <div>
+            <button class="col btn btn-primary b_add" data-bs-toggle="modal" data-bs-target="#modalBeb">
+                <i class="bi bi-cup-straw"></i>
+                <br>
+                Agregar Bebidas
+            </button>
+
+            <button class="col btn btn-success b_calc" data-bs-toggle="modal" data-bs-target="#modalBebCalc">
+                <i class="bi bi-calculator"></i>
+                <br>
+                Calcular Bebidas
+            </button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalBebCalc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <i class="bi bi-calculator" style="color: white; margin-right:10px; font-size:25px"></i>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">Calcular Bebidas</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label for="date1">Desde:</label>
+                        <input type="date" id="date1" class="form-control" name="date1">
+                        <label for="date2">Hasta:</label>
+                        <input type="date" id="date2" class="form-control" name="date2">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Calcular</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalBeb" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary" style="color:white">
+                    <i class="bi bi-cup-straw" style="font-size:25px; color:white; margin-right: 10px;"></i>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Aggregar Bebida</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="desc" class="form-label">Descripcion</label>
+                            <input type="text" class="form-control" id="desc">
+                            <label for="cant" class="form-label">Cantidad en Mililitros</label>
+                            <input type="text" class="form-control" id="cant">
+                            <label for="ingre" class="form-label">Cantidad de Ingreso</label>
+                            <input type="number" class="form-control" id="ingre">
+                            <label for="precio" class="form-label">Precio</label>
+                            <input type="text" class="form-control" id="precio" placeholder="00.00">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Agregar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalEditBeb" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary">
+                    <i class="bi bi-cup-straw" style="font-size:25px; color:white; margin-right: 10px;"></i>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">Editar Bebida</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="desc" class="form-label">Descripcion</label>
+                            <input type="text" class="form-control" id="desc">
+                            <label for="cant" class="form-label">Cantidad en Mililitros</label>
+                            <input type="text" class="form-control" id="cant">
+                            <label for="ingre" class="form-label">Cantidad de Ingreso</label>
+                            <input type="number" class="form-control" id="ingre">
+                            <label for="precio" class="form-label">Precio</label>
+                            <input type="text" class="form-control" id="precio" placeholder="00.00">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Agregar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalDeBeb" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <i class="bi bi-trash-fill" style="font-size:25px; color:white; margin-right:10px"></i>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color:white">Elimnar Bebida</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Desea eliminar la Bebida?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Elimniar Bebida</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="contenedor" style="margin-top: 150px;">
         <div style="height: 500px; overflow-y: auto;">
@@ -37,6 +155,7 @@ $beb = new ControllerBebidas();
                     <th scope="col" class="text-center encabezado">Cantidad_ML</th>
                     <th scope="col" class="text-center encabezado">Precio</th>
                     <th scope="col" class="text-center encabezado">Imagen_bebida</th>
+                    <th scope="col" class="text-center encabezado">Acciones</th>
                 </thead>
                 <tbody>
                     <?php
@@ -45,10 +164,10 @@ $beb = new ControllerBebidas();
                 </tbody>
             </table>
         </div>
-        <div>
-            
-        </div>
     </div>
+
+
+
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js_personalizado/ReferencePage.js"></script>
 </body>
