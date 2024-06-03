@@ -83,9 +83,9 @@ $ing = new ControllerIngredients();
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
-                <div class="modal-header bg-primary">
-                    <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white"></i>
-                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Registrar Ingrediente</h5>
+                <div class="modal-header bg-secondary">
+                    <i class="bi bi-pencil-square" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Editar Ingrediente</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -106,13 +106,13 @@ $ing = new ControllerIngredients();
                             </select>
                         </div>
                         <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
-                            Agregar
+                            Editar
                             <i class="bi bi-arrow-right-circle-fill"></i>
                         </button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -122,36 +122,17 @@ $ing = new ControllerIngredients();
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
-                <div class="modal-header bg-primary">
-                    <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white"></i>
-                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Registrar Ingrediente</h5>
+                <div class="modal-header bg-danger">
+                    <i class="bi bi-trash-fill" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Eliminar Ingrediente</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <div class="modal-body">
-                    <form id="form-modal-NewOrder" method="POST" action="">
-                        <div class="mb-3">
-                            <label for="Desc" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" id="Desc">
-                        </div>
-                        <div class="mb-3">
-                            <label for="ammount" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" id="ammount">
-                        </div>
-                        <div class="mb-3">
-                            <label for="quantity" class="form-label">Unidad de Medida</label>
-                            <select name="quantity" class="form-control" id="quantity">
-                                <?php echo $ing->ShowUnit(); ?>
-                            </select>
-                        </div>
-                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
-                            Agregar
-                            <i class="bi bi-arrow-right-circle-fill"></i>
-                        </button>
-                    </form>
+                    ¿Desea elimnar este Ingrediente?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>

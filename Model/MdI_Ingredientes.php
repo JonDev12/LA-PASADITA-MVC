@@ -24,11 +24,11 @@ class ModelIngredients{
                     $tableBody .= '<td class="text-center">' . $row['U_Medida'] . '</td>';
                     $tableBody .=   "<td class='text-center'>
                                         <div class='text-center'>
-                                            <button data-bs-target='#modalIngEd' style='width: 40px; height: 40px;border-radius: 10px; background-color: #d9e3eb;'>
-                                                <i class='bi bi-pen-fill'></i>
+                                            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalIngEd'>
+                                                <i class='bi bi-pencil-square'></i>
                                             </button>
-                                            <button data-bs-target='#modalIngDe' style='width: 40px; height: 40px;border-radius: 10px; background-color: red;'>
-                                                <i class='bi bi-trash3-fill'></i>
+                                            <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#modalIngDe'>
+                                                <i class='bi bi-trash-fill'></i>
                                             </button>
                                         </div>
                                     </td>";
