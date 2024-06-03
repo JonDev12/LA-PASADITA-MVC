@@ -39,11 +39,11 @@ class Menu{
                 $html .= "<td class='text-center'>{$formatted_date}</td>"; // Show the formatted date
                 $html .= "<td class='text-center'>
                             <div class='text-center'>
-                                <button href='#' style='width: 40px; height: 40px;border-radius: 10px; background-color: #d9e3eb;'>
-                                    <i class='bi bi-pen-fill'></i>
+                                <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#ModalUsUp'>
+                                    <i class='bi bi-pencil-square'></i>
                                 </button>
-                                <button href='#' style='width: 40px; height: 40px;border-radius: 10px; background-color: red;'>
-                                    <i class='bi bi-trash3-fill'></i>
+                                <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#ModalUsDe'>
+                                    <i class='bi bi-trash'></i>
                                 </button>
                             </div>
                         </td>";

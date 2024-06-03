@@ -21,8 +21,7 @@ $s = new Menu();
             <a class="navbar-brand">Menu Principal</a>
             <form class="d-flex text-center" role="search">
                 <div class="dropdown">
-                    <button class="dropdown-toggle botones" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <button class="dropdown-toggle botones" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-gear-wide"></i>
                     </button>
                     <ul class="dropdown-menu " style="background-color: #c4f1fc;">
@@ -32,8 +31,7 @@ $s = new Menu();
                         <li><a class="dropdown-item" href="#" onclick="redireccion_IniciarSesion()">Salir</a></li>
                     </ul>
                 </div>
-                <button class="botones" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                <button class="botones" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-menu-button-wide t_icon"></i>
                 </button>
             </form>
@@ -43,6 +41,59 @@ $s = new Menu();
         <h1 class="text-center" style="font-size: 25px; margin-top: 21px;">Hola, Bienvenido</h1>
         <img src="../images/acceso.png" style="width: 100px;position: fixed;left: 47%;">
     </div>
+
+    <div class="modal fade" id="ModalUsUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary">
+                    <i class="bi bi-pencil-square" style="color: white; margin-right:10px; font-size:25px"></i>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">Editar Informacion</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <form action="">
+                            <label for="name">Nombre</label>
+                            <input type="text" name="name" id="name" class="form-control">
+                            <label for="lastname">Apellido</label>
+                            <input type="text" name="lastname" id="lastname" class="form-control">
+                            <label for="lastname2">Apellido</label>
+                            <input type="text" name="lastname2" id="lastname2" class="form-control">
+                            <label for="cargo">Cargo</label>
+                            <select name="cargo" id="cargo" class="form-control">
+                                <option>Administrador</option>
+                                <option selected>Empleado</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Editar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ModalUsDe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <i class="bi bi-trash" style="color: white; margin-right:10px; font-size:25px"></i>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">Elimnar Usuario</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estas seguro de eliminar este usuario?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="contenedor" style="margin-top: 150px;">
         <div style="height: 500px; overflow-y: auto;">
             <table border="1">
@@ -57,18 +108,14 @@ $s = new Menu();
                 </thead>
                 <tbody>
                     <?php
-                        echo $s->GetUsers();
+                    echo $s->GetUsers();
                     ?>
                 </tbody>
-                <button class="boton-form" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="bi bi-plus"></i>
-                </button>
             </table>
         </div>
     </div>
-    
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-        aria-labelledby="offcanvasWithBothOptionsLabel">
+
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header" style="background-color: #c4f1fc;">
             <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Menu de Opciones</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -92,7 +139,7 @@ $s = new Menu();
                     <span class="titulos">Ingredientes</span>
                 </button>
                 <button class="botones-offcanvas" id="Platillos">
-                    <img src="../images/pierna-de-pollo.png" class="iconos" alt="" >
+                    <img src="../images/pierna-de-pollo.png" class="iconos" alt="">
                     <span class="titulos">Platillos</span>
                 </button>
                 <button class="botones-offcanvas" id="Bebidas">
@@ -114,7 +161,7 @@ $s = new Menu();
             </ul>
         </div>
     </div>
-    
+
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js_personalizado/Pagesredirect.js"></script>
     <script src="../js_personalizado/ReferencePage.js"></script>
