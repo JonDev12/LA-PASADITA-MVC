@@ -66,56 +66,78 @@ $cat = new ControllerCategories();
             </div>
         </div>
     </div>
-<!--Editar-->
+    <!-- Modal Editar -->
     <div class="modal fade" id="ModalCatUp" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-
                 <div class="modal-header bg-secondary">
-                    <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white"></i>
+                    <i class="bi bi-pencil-square" style="font-size: 25px; color:white"></i>
                     <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Editar Categoria</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <div class="modal-body">
-                    <form id="form-modal-NewOrder" method="POST" action="">
+                    <form id="editCategoryForm" method="POST" action="../Model/Mdl_Categories.php">
+                        <input type="hidden" name="id" id="editCategoryId">
                         <div class="mb-3">
                             <label for="txtDescripcion" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion">
+                            <input type="text" class="form-control" id="editDescripcion" name="descripcion">
                         </div>
-                        <button type="button" class="btn btn-secondary" onclick="ValidateOrder()">
-                            Editar
-                            <i class="bi bi-arrow-right-circle-fill"></i>
-                        </button>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" name="edit_category">Editar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
     </div>
-<!--Eiminar-->
+
+    <!-- Modal Eliminar -->
     <div class="modal fade" id="ModalCatDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-
                 <div class="modal-header bg-danger">
-                    <i class="bi bi-plus-circle-fill" style="font-size: 25px; color:white"></i>
-                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Elimnar Categoria</h5>
+                    <i class="bi bi-trash" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Eliminar Categoria</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <div class="modal-body">
                     ¿Deseas eliminar esta categoria?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger">Eliminar</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <form id="deleteCategoryForm" method="POST" action="../Model/Mdl_Categories.php">
+                        <input type="hidden" name="id" id="deleteCategoryId">
+                        <button type="submit" class="btn btn-danger" name="delete_category">Eliminar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var editButtons = document.querySelectorAll('.edit-btn');
+            editButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var id = button.getAttribute('data-id');
+                    var descripcion = button.getAttribute('data-descripcion');
+
+                    document.getElementById('editCategoryId').value = id;
+                    document.getElementById('editDescripcion').value = descripcion;
+                });
+            });
+
+            var deleteButtons = document.querySelectorAll('.delete-btn');
+            deleteButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var id = button.getAttribute('data-id');
+                    document.getElementById('deleteCategoryId').value = id;
+                });
+            });
+        });
+    </script>
+
 
     <div class="contenedor" style="margin-top: 150px;">
         <div style="height: 500px; overflow-y: auto;">
