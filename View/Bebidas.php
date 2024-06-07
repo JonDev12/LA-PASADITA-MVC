@@ -12,7 +12,7 @@ $beb = new ControllerBebidas();
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/estilos_menu.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Categorias</title>
+    <title>Bebidas</title>
 </head>
 
 <body>
