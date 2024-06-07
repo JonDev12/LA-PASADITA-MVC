@@ -83,8 +83,8 @@ $cat = new ControllerCategories();
                             <label for="txtDescripcion" class="form-label">Descripcion</label>
                             <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion">
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
-                            Agregar
+                        <button type="button" class="btn btn-secondary" onclick="ValidateOrder()">
+                            Editar
                             <i class="bi bi-arrow-right-circle-fill"></i>
                         </button>
                     </form>

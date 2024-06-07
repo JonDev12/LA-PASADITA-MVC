@@ -28,10 +28,10 @@ class ModelCategories
                     $tableBody .= '<td class="text-center">' . $row['Fecha_Creacion'] . '</td>';
                     $tableBody .=   "<td class='text-center'>
                                         <div class='text-center'>
-                                            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#ModalCatUp' onclick='GetCategory(" . $row['IdCategorias'] . ")'>
+                                            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#ModalCatUp'>
                                                 <i class='bi bi-pencil-square'></i>
                                             </button>
-                                            <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#ModalCatDe' onclick='GetCategory(" . $row['IdCategorias'] . ")'>
+                                            <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#ModalCatDe'>
                                                 <i class='bi bi-trash'></i>
                                             </button>
                                         </div>
