@@ -14,6 +14,6 @@ class ControllerAlmacen
 
     public function ShowData()
     {
-        return $this->ma->GetAllAlmacen();
+        return $this->ma->GetAllItems();
     }
 }

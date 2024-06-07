@@ -42,6 +42,7 @@ $alm = new ControllerAlmacen();
         </button>-->
     </div>
 
+    <!-- Modal Editar -->
     <div class="modal fade" id="modalAlmEd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -51,27 +52,29 @@ $alm = new ControllerAlmacen();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="editItemForm" method="POST" action="../Model/Mdl_Almacen.php">
+                        <input type="hidden" name="id" id="editItemId">
                         <div class="mb-3">
-                            <label for="desc">Descripcion</label>
-                            <input type="text" class="form-control" id="desc">
-                            <label for="total">Total</label>
-                            <input type="number" class="form-control" id="total">
-                            <label for="disp">Disponibles</label>
-                            <input type="number" class="form-control" id="disp">
-                            <label for="def">Defectuosos</label>
-                            <input type="number" class="form-control" id="def">
+                            <label for="editDesc">Descripcion</label>
+                            <input type="text" class="form-control" id="editDesc" name="descripcion">
+                            <label for="editTotal">Total</label>
+                            <input type="number" class="form-control" id="editTotal" name="total">
+                            <label for="editDisp">Disponibles</label>
+                            <input type="number" class="form-control" id="editDisp" name="disponibles">
+                            <label for="editDef">Defectuosos</label>
+                            <input type="number" class="form-control" id="editDef" name="defectuosos">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" name="edit_item">Editar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Editar</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Modal Eliminar -->
     <div class="modal fade" id="modalAlmDe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -84,12 +87,45 @@ $alm = new ControllerAlmacen();
                     ¿Deseas Eliminar este item?
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-danger">Elimnar</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <form id="deleteItemForm" method="POST" action="../Model/Mdl_Almacen.php">
+                        <input type="hidden" name="id" id="deleteItemId">
+                        <button type="submit" class="btn btn-danger" name="delete_item">Eliminar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var editButtons = document.querySelectorAll('.edit-item-btn');
+            editButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var id = button.getAttribute('data-id');
+                    var descripcion = button.getAttribute('data-descripcion');
+                    var total = button.getAttribute('data-total');
+                    var disponibles = button.getAttribute('data-disponibles');
+                    var defectuosos = button.getAttribute('data-defectuosos');
+
+                    document.getElementById('editItemId').value = id;
+                    document.getElementById('editDesc').value = descripcion;
+                    document.getElementById('editTotal').value = total;
+                    document.getElementById('editDisp').value = disponibles;
+                    document.getElementById('editDef').value = defectuosos;
+                });
+            });
+
+            var deleteButtons = document.querySelectorAll('.delete-item-btn');
+            deleteButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var id = button.getAttribute('data-id');
+                    document.getElementById('deleteItemId').value = id;
+                });
+            });
+        });
+    </script>
+
 
     <div class="contenedor" style="margin-top: 20px;">
         <div style="height: 500px; overflow-y: auto;">
