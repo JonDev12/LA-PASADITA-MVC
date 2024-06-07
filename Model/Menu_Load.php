@@ -63,7 +63,11 @@ class Menu
         $apellidoM = $_POST['apellidoM'];
         $tipo_usuario = $_POST['tipo_usuario'];
         $id = $_POST['id'];
-        $stmt->execute();
+        if ($stmt->execute()) {
+            echo "Usuario actualizado correctamente.";
+        } else {
+            echo "Error al actualizar el usuario: " . $stmt->error;
+        }
         $stmt->close();
         $con->close();
     }
@@ -75,7 +79,11 @@ class Menu
         $stmt = $con->prepare($sql);
         $stmt->bind_param('i', $id);
         $id = $_POST['id'];
-        $stmt->execute();
+        if ($stmt->execute()) {
+            echo "Usuario eliminado correctamente.";
+        } else {
+            echo "Error al eliminar el usuario: " . $stmt->error;
+        }
         $stmt->close();
         $con->close();
     }
@@ -91,4 +99,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header('Location: ' . $_SERVER['PHP_SELF']); // Redirige después de editar o eliminar
     exit;
 }
-?>

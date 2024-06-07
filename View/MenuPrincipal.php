@@ -41,6 +41,7 @@ $s = new Menu();
         <img src="../images/acceso.png" style="width: 100px;position: fixed;left: 47%;">
     </div>
 
+    <!-- Modal Editar Usuario -->
     <div class="modal fade" id="ModalUsUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -50,7 +51,7 @@ $s = new Menu();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="editUserForm" method="post" action="../Model/Menu_Load.php">
+                    <form id="editUserForm" method="post" action="">
                         <input type="hidden" name="id" id="editUserId">
                         <div class="mb-3">
                             <label for="nombre">Nombre</label>
@@ -72,7 +73,7 @@ $s = new Menu();
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Editar</button>
+                            <button type="submit" name="edit_user" class="btn btn-primary">Editar</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </form>
@@ -80,6 +81,7 @@ $s = new Menu();
             </div>
         </div>
     </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -110,6 +112,7 @@ $s = new Menu();
         });
     </script>
 
+    <!-- Modal Eliminar Usuario -->
     <div class="modal fade" id="ModalUsDe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -124,7 +127,7 @@ $s = new Menu();
                         <input type="hidden" name="delete_user" value="1">
                         <p>¿Estás seguro de eliminar este usuario?</p>
                         <div class="modal-footer">
-                            <button type="submit" form="deleteUserForm" class="btn btn-danger">Eliminar</button>
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </form>
@@ -132,6 +135,7 @@ $s = new Menu();
             </div>
         </div>
     </div>
+
 
     <div class="contenedor" style="margin-top: 190px;">
         <div style="height: 500px; overflow-y: auto;">
