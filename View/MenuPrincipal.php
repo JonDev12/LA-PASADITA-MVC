@@ -1,8 +1,7 @@
 <?php
-require_once '../Model/Menu_Load.php';
+require_once('../Model/Menu_Load.php');
 $s = new Menu();
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -40,7 +39,104 @@ $s = new Menu();
         <h1 class="text-center" style="font-size: 25px; margin-top: 21px;">Hola, Bienvenido</h1>
         <img src="../images/acceso.png" style="width: 100px;position: fixed;left: 47%;">
     </div>
-    <div class="contenedor" style="margin-top: 150px;">
+
+    <!-- Modal Editar Usuario -->
+    <div class="modal fade" id="ModalUsUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary">
+                    <i class="bi bi-pencil-square" style="color: white; margin-right:10px; font-size:25px"></i>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">Editar Informacion</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editUserForm" method="post" action="">
+                        <input type="hidden" name="id" id="editUserId">
+                        <div class="mb-3">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellidoP">Apellido Paterno</label>
+                            <input type="text" name="apellidoP" id="apellidoP" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellidoM">Apellido Materno</label>
+                            <input type="text" name="apellidoM" id="apellidoM" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="tipo_usuario">Cargo</label>
+                            <select name="tipo_usuario" id="tipo_usuario" class="form-control">
+                                <option value="Administrador">Administrador</option>
+                                <option value="Empleado">Empleado</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" name="edit_user" class="btn btn-primary">Editar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var editButtons = document.querySelectorAll('.edit-btn');
+            editButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var id = button.getAttribute('data-id');
+                    var nombre = button.getAttribute('data-nombre');
+                    var apellidoP = button.getAttribute('data-apellidop');
+                    var apellidoM = button.getAttribute('data-apellidom');
+                    var tipo_usuario = button.getAttribute('data-tipousuario');
+
+                    document.getElementById('editUserId').value = id;
+                    document.getElementById('nombre').value = nombre;
+                    document.getElementById('apellidoP').value = apellidoP;
+                    document.getElementById('apellidoM').value = apellidoM;
+                    document.getElementById('tipo_usuario').value = tipo_usuario;
+                });
+            });
+
+            var deleteButtons = document.querySelectorAll('.btn-danger[data-bs-toggle="modal"]');
+            deleteButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var id = button.closest('tr').querySelector('th').innerText;
+                    document.getElementById('deleteUserId').value = id;
+                });
+            });
+        });
+    </script>
+
+    <!-- Modal Eliminar Usuario -->
+    <div class="modal fade" id="ModalUsDe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <i class="bi bi-trash" style="color: white; margin-right:10px; font-size:25px"></i>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">Eliminar Usuario</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="deleteUserForm" method="post" action="">
+                        <input type="hidden" name="id" id="deleteUserId">
+                        <input type="hidden" name="delete_user" value="1">
+                        <p>¿Estás seguro de eliminar este usuario?</p>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="contenedor" style="margin-top: 190px;">
         <div style="height: 500px; overflow-y: auto;">
             <table border="1">
                 <thead>
@@ -57,7 +153,6 @@ $s = new Menu();
                     echo $s->GetUsers();
                     ?>
                 </tbody>
-                <br>
             </table>
         </div>
     </div>
@@ -106,84 +201,6 @@ $s = new Menu();
                     <span class="titulos">Mas</span>
                 </button>
             </ul>
-        </div>
-    </div>
-
-    <div class="modal fade" id="ModalUsAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="ModalUsEd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-secondary">
-                    <i class="bi bi-pencil-square" style="font-size: 25px; color:white"></i>
-                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Editar Informacion</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form id="form_user" method="POST" ">
-                        <div class="mb-3">
-                            <label for="name">Nombre</label>
-                            <input type="text" class="form-control" id="name" name="name">
-                            <label for="lastname">Apellido Paterno</label>
-                            <input type="text" class="form-control" id="lastname" name="lastname">
-                            <label for="lastname2">Apellido Materno</label>
-                            <input type="text" class="form-control" id="lastname2" name="lastname2">
-                            <label for="type">Cargo</label>
-                            <select class="form-control">
-                                <option value="1">Administrador</option>
-                                <option value="2" selected>Empleado</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            Agregar
-                            <i class="bi bi-arrow-right-circle-fill"></i>
-                        </button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="ModalUsDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-
-                <div class="modal-header bg-danger">
-                    <i class="bi bi-trash3-fill" style="font-size: 25px; color:white"></i>
-                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Elimnar Categoria</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form id="form-modal-NewOrder" method="POST" action="../Modals/ModalOrder.php" onsubmit="return ValidateOrder()">
-                        ¿Deseas eliminar la Categoria actual?
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger">Eliminar Orden</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
         </div>
     </div>
 

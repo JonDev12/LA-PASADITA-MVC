@@ -1,13 +1,6 @@
 <?php
 require_once '../Controller/Ctl_Ventas.php';
 $sales = new ControllerSales();
-// Instanciar la clase ModelSales
-$modelSales = new ModelSales(new Connection());
-
-// Llamar al método generatePDFReport() cuando se hace clic en el botón "Obtener Reporte"
-if(isset($_POST['obtener_reporte'])) {
-    $modelSales->generatePDFReport();
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +35,7 @@ if(isset($_POST['obtener_reporte'])) {
                 <br>
                 Calcular Ventas
             </button>
+            
 
             <div class="row" style="position: absolute; top: 125px; left: 340px;">
                 <form class="d-flex" role="search">
@@ -149,6 +143,10 @@ if(isset($_POST['obtener_reporte'])) {
                 </tbody>
             </table>
         </div>
+    </div>
+    
+    <div> 
+        <?php echo $sales->GenPDF(); ?> 
     </div>
 
     <script src="../js_personalizado/ReferencePage.js"></script>

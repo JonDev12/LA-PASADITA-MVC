@@ -37,11 +37,16 @@ $pdf = new FPDF('P', 'mm', 'A4');
 $pdf->AddPage();
 
 // Títulos y Encabezados
-$pdf->SetFont('Times', 'B', 12);
+$pdf->SetFont('helvetica', 'B', 14);
 $pdf->Cell(0, 10, 'Reporte de Ventas', 0, 1, 'C');
 $pdf->Ln(10);
 
-$pdf->SetFont('Times', 'B', 10);
+
+// Posicionar la tabla centrada
+$pos_x = ($pdf->GetPageWidth() - 140) / 2;
+$pdf->SetX($pos_x);
+
+$pdf->SetFont('courier', 'B', 12);
 $pdf->Cell(25, 10, 'ID', 1, 0, 'C');
 $pdf->Cell(30, 10, 'Fecha', 1, 0, 'C');
 $pdf->Cell(30, 10, 'Hora', 1, 0, 'C');
@@ -49,8 +54,9 @@ $pdf->Cell(25, 10, 'Cantidad', 1, 0, 'C');
 $pdf->Cell(30, 10, 'Total', 1, 1, 'C');
 
 // Datos de Ventas
-$pdf->SetFont('Times', '', 10);
+$pdf->SetFont('courier', '', 12);
 foreach ($sales as $row) {
+    $pdf->SetX($pos_x);
     $pdf->Cell(25, 10, $row['IdVentas'], 1, 0, 'C');
     $pdf->Cell(30, 10, $row['fecha'], 1, 0, 'C');
     $pdf->Cell(30, 10, $row['hora'], 1, 0, 'C');

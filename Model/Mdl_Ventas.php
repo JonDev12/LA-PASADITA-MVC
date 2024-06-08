@@ -1,6 +1,7 @@
 <?php
 
 require_once '../Model/Connection.php';
+require_once '../fpdf/fpdf.php';
 
 class ModelSales{
     private $db;
@@ -47,5 +48,13 @@ class ModelSales{
         } catch (Exception $e) {
             echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
         }    
+    }
+
+    public function GenPDF(){
+        echo '<div  align="center" >
+                <a  href= "../fpdf/ReporteVentas.php" target = "_blank">
+                    Obtener Reporte
+                    </div>';
+        
     }
 }

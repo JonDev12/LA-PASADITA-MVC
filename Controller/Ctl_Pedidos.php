@@ -1,5 +1,5 @@
 <?php
-require_once '../Model/Mdl_Ordenes.php';
+require_once '../Model/Mdl_Pedidos.php';
 require_once '../Model/Connection.php';
 
 class ControllerDelivery{
@@ -7,11 +7,14 @@ class ControllerDelivery{
 
     public function __construct(){
         $con = new Connection();
-        $this->model = new ModelOrders($con);
+        $this->model = new ModelDelivery($con);
     }
 
     public function getDeliveries(){
-        return $this->model->getOrders();
+        return $this->model->getDeliveries();
     }
     
+    public function getSaurces(){
+        return $this->model->getSaurces();
+    }
 }

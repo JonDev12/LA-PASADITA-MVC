@@ -38,8 +38,6 @@ $ing = new ControllerIngredients();
         </div>
     </div>
 
-
-
     <div class="modal fade" id="modalIng" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -82,6 +80,7 @@ $ing = new ControllerIngredients();
     <div class="modal fade" id="ModalIngEd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
+
                 <div class="modal-header bg-secondary">
                     <i class="bi bi-pencil-square" style="font-size: 25px; color:white"></i>
                     <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Editar Ingrediente</h5>
@@ -99,11 +98,14 @@ $ing = new ControllerIngredients();
                                 <?php echo $ing->ShowUnit(); ?>
                             </select>
                         </div>
+                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
+                            Editar
+                            <i class="bi bi-arrow-right-circle-fill"></i>
+                        </button>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Editar</button>
                 </div>
             </div>
         </div>
@@ -114,18 +116,15 @@ $ing = new ControllerIngredients();
             <div class="modal-content">
 
                 <div class="modal-header bg-danger">
-                    <i class="bi bi-trash3-fill" style="font-size: 25px; color:white"></i>
-                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Elimnar Ingrediente</h5>
+                    <i class="bi bi-trash-fill" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Eliminar Ingrediente</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <div class="modal-body">
-                    <form id="form_delete_ing" method="POST">
-                        ¿Deseas eliminar el ingrediente?
-                    </form>
+                    ¿Desea elimnar este Ingrediente?
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger">Eliminar ingrediente</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
