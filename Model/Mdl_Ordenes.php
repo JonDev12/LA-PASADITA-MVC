@@ -26,10 +26,10 @@ class ModelOrders{
                     $tableBody .= '<td class="text-center">' . $row['cantidad'] . '</td>';
                     $tableBody .= '<td class="text-center">' . $row['monto'] . '</td>';
                     $tableBody .= '<td>
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditOrder" onclick="editOrder()">
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarOrden">
                                         <i class="bi bi-pencil-square"></i>
                                     </button>
-                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteOrder" onclick="">
+                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalEliminarOrden" >
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </td>';
