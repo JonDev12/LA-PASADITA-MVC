@@ -25,14 +25,16 @@ class ModelOrders{
                     $tableBody .= '<td class="text-center">' . $row['hora'] . '</td>';
                     $tableBody .= '<td class="text-center">' . $row['cantidad'] . '</td>';
                     $tableBody .= '<td class="text-center">' . $row['monto'] . '</td>';
-                    $tableBody .= '<td>
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarOrden">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </button>
-                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalEliminarOrden" >
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </td>';
+                    $tableBody .=  "<td class='text-center'>
+                    <div class='text-center'>
+                        <button type='button' class='btn btn-primary edit-btn' data-bs-toggle='modal' data-bs-target='#modalEditarOrden' data-id='" . $row['IdOrdenes'] . "' data-estado='" . $row['estado'] . "' data-cantidad='" . $row['cantidad'] . "' data-monto='" . $row['monto'] . "'>
+                                    <i class='bi bi-pencil-square'></i>
+                                </button>
+                                <button type='button' class='btn btn-danger delete-btn' data-bs-toggle='modal' data-bs-target='#modalEliminarOrden' data-id='" . $row['IdOrdenes'] . "'>
+                                    <i class='bi bi-trash'></i>
+                                </button>
+                    </div>
+                </td>";
                     $tableBody .= '</tr>';
                 }
                 return $tableBody;
@@ -68,7 +70,7 @@ class ModelOrders{
     }
 
     public function getOrder($id){
-        $query = $this->db->prepare('SELECT * FROM ordenes WHERE id_orden = ?');
+        $query = $this->db->prepare('SELECT * FROM ordenes WHERE IdOrdenes = ?');
         $query->execute(array($id));
         $order = $query->fetch(PDO::FETCH_OBJ);
         return $order;
@@ -88,12 +90,44 @@ class ModelOrders{
     }
 
     public function deleteOrder($id){
-        $query = $this->db->prepare('DELETE FROM ordenes WHERE id_orden = ?');
-        $query->execute(array($id));
+        try {
+            $query = "DELETE FROM ordenes WHERE IdOrdenes = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            return true; // Éxito
+        } catch (Exception $e) {
+            echo "<script>alert('Error al eliminar la orden " . $e->getMessage() . "');</script>";
+            return false; // Error
+        }
     }
 
-    public function updateOrder($id, $id_usuario, $fecha, $total){
-        $query = $this->db->prepare('UPDATE ordenes SET id_usuario = ?, fecha = ?, total = ? WHERE id_orden = ?');
-        $query->execute(array($id_usuario, $fecha, $total, $id));
+    public function updateOrder($id, $estado, $cantidad, $monto){
+        try {
+            $query = "UPDATE ordenes SET Estado = ?, Cantidad = ?, Monto = ? WHERE IdOrdenes = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ssdi", $estado, $cantidad, $monto, $id);
+            $stmt->execute();
+            return true; // Éxito
+        } catch (Exception $e) {
+            echo "<script>alert('Error al editar la orden: " . $e->getMessage() . "');</script>";
+            return false; // Error
+        }
     }
+    
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $menu = new ModelOrders(new Connection());
+    if (isset($_POST['edit_Orden'])) {
+        $id = $_POST['id'];
+        $estado = $_POST['estado'];
+        $cantidad = $_POST['cantidad'];
+        $monto = $_POST['monto'];
+        $menu->updateOrder($id, $estado, $cantidad, $monto);
+    } elseif (isset($_POST['delete_Orden'])) {
+        $id = $_POST['id'];
+        $menu->deleteOrder($id);
+    }
+    header('Location: ' . $_SERVER['PHP_SELF']); // Redirige después de editar o eliminar
+    exit;
 }
