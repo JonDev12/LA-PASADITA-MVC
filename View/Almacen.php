@@ -26,7 +26,7 @@ $alm = new ControllerAlmacen();
             </form>
         </div>
     </nav>
-
+s
     <div class="col" style="margin-left: 50px; margin-top:50px">
         <!--<div>
             <button class="col btn btn-primary b_add" data-bs-toggle="modal" data-bs-target="#modalIng">
