@@ -60,7 +60,7 @@ $ord = new ControllerOrders();
                     </div>
 
                     <div class="modal-body">
-                        <form id="form-modal-NewOrder" method="POST" action="../Modals/ModalOrder.php">
+                        <form id="ModalOrden" method="POST" action="../Modals/ModalOrder.php">
                             <div class="mb-3">
                                 <label for="state" class="form-label">Estado de Orden</label>
                                 <select class="form-select" name="state" id="state" aria-label="Default select example">
@@ -80,7 +80,7 @@ $ord = new ControllerOrders();
                                 <label for="txt_ammount" class="form-label">Precio:</label>
                                 <input type="text" class="form-control" id="txt_ammount" name="txt_ammount" placeholder="$00.00">
                             </div>
-                            <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
+                            <button type="submit" class="btn btn-primary" onclick="ValidateOrder()">
                                 Agregar
                                 <i class="bi bi-arrow-right-circle-fill"></i>
                             </button>
@@ -120,45 +120,45 @@ $ord = new ControllerOrders();
                 </div>
             </div>
         </div>
-<!-- Modal editar -->
-<div class="modal fade" id="modalEditarOrden" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-secondary">
-                <i class="bi bi-pencil-square" style="font-size: 25px; color:white"></i>
-                <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Editar Orden</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="form-modal-EditOrder" method="POST">
-                    <input type="hidden" name="id" id="editOrderId">
-                    <div class="mb-3">
-                        <label for="editEstado" class="form-label">Estado de Orden</label>
-                        <select class="form-select" name="estado" id="editEstado" aria-label="Default select example">
-                            <option value="En espera">En espera</option>
-                            <option value="En proceso">En proceso</option>
-                            <option value="Completado">Completado</option>
-                        </select>
+        <!-- Modal editar -->
+        <div class="modal fade" id="modalEditarOrden" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-secondary">
+                        <i class="bi bi-pencil-square" style="font-size: 25px; color:white"></i>
+                        <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Editar Orden</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="mb-3">
-                        <label for="editCantidad" class="form-label">Cantidad:</label>
-                        <input type="number" class="form-control" id="editCantidad" name="cantidad">
+                    <div class="modal-body">
+                        <form id="form-modal-EditOrder" method="POST">
+                            <input type="hidden" name="id" id="editOrderId">
+                            <div class="mb-3">
+                                <label for="editEstado" class="form-label">Estado de Orden</label>
+                                <select class="form-select" name="estado" id="editEstado" aria-label="Default select example">
+                                    <option value="En espera">En espera</option>
+                                    <option value="En proceso">En proceso</option>
+                                    <option value="Completado">Completado</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editCantidad" class="form-label">Cantidad:</label>
+                                <input type="number" class="form-control" id="editCantidad" name="cantidad">
+                            </div>
+                            <div class="mb-3">
+                                <label for="editMonto" class="form-label">Monto:</label>
+                                <input type="text" class="form-control" id="editMonto" name="monto" placeholder="$00.00">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary" name="edit_Orden">Editar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="mb-3">
-                        <label for="editMonto" class="form-label">Monto:</label>
-                        <input type="text" class="form-control" id="editMonto" name="monto" placeholder="$00.00">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" name="edit_Orden">Editar</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Modal eliminar -->
+        <!-- Modal eliminar -->
         <div class="modal fade" id="modalEliminarOrden" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -172,42 +172,42 @@ $ord = new ControllerOrders();
                         <p></p>¿Está seguro de eliminar la orden?</p>
                     </div>
                     <div class="modal-footer">
-                    <form id="deleteOrderForm" method="POST" >
-                        <input type="hidden" name="id" id="deleteOrderId">
-                        <button type="submit" class="btn btn-danger" name="delete_Orden">Eliminar</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    </form>
-                </div>
+                        <form id="deleteOrderForm" method="POST">
+                            <input type="hidden" name="id" id="deleteOrderId">
+                            <button type="submit" class="btn btn-danger" name="delete_Orden">Eliminar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
 
         <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var editButtons = document.querySelectorAll('.edit-btn');
-        editButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                var id = button.getAttribute('data-id');
-                var estado = button.getAttribute('data-estado');
-                var cantidad = button.getAttribute('data-cantidad');
-                var monto = button.getAttribute('data-monto');
+            document.addEventListener('DOMContentLoaded', function() {
+                var editButtons = document.querySelectorAll('.edit-btn');
+                editButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        var id = button.getAttribute('data-id');
+                        var estado = button.getAttribute('data-estado');
+                        var cantidad = button.getAttribute('data-cantidad');
+                        var monto = button.getAttribute('data-monto');
 
-                document.getElementById('editOrderId').value = id;
-                document.getElementById('editEstado').value = estado;
-                document.getElementById('editCantidad').value = cantidad;
-                document.getElementById('editMonto').value = monto;
-            });
-        });
+                        document.getElementById('editOrderId').value = id;
+                        document.getElementById('editEstado').value = estado;
+                        document.getElementById('editCantidad').value = cantidad;
+                        document.getElementById('editMonto').value = monto;
+                    });
+                });
 
-        var deleteButtons = document.querySelectorAll('.delete-btn');
-        deleteButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                var id = button.getAttribute('data-id');
-                document.getElementById('deleteOrderId').value = id;
+                var deleteButtons = document.querySelectorAll('.delete-btn');
+                deleteButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        var id = button.getAttribute('data-id');
+                        document.getElementById('deleteOrderId').value = id;
+                    });
+                });
             });
-        });
-    });
-</script>
+        </script>
 
         <div class="contenedor" style="margin-top: 70px;">
             <div style="height: 400px; overflow-y: auto;">

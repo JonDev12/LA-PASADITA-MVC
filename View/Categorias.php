@@ -49,12 +49,12 @@ $cat = new ControllerCategories();
                 </div>
 
                 <div class="modal-body">
-                    <form id="form-modal-NewOrder" method="POST" action="">
+                    <form id="new_cat" method="POST" action="../Modals/ModalCategories.php">
                         <div class="mb-3">
                             <label for="txtDescripcion" class="form-label">Descripcion</label>
                             <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion">
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
+                        <button type="subnit" class="btn btn-primary">
                             Agregar
                             <i class="bi bi-arrow-right-circle-fill"></i>
                         </button>

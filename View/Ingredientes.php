@@ -49,14 +49,14 @@ $ing = new ControllerIngredients();
                 </div>
 
                 <div class="modal-body">
-                    <form id="form-modal-NewOrder" method="POST" action="">
+                    <form id="NewOrder" method="POST" action="../Modals/ModalIngredients.php">
                         <div class="mb-3">
                             <label for="Desc" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" id="Desc">
+                            <input type="text" class="form-control" id="Desc" name="Desc">
                         </div>
                         <div class="mb-3">
                             <label for="ammount" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" id="ammount">
+                            <input type="number" class="form-control" id="ammount" name="ammount">
                         </div>
                         <div class="mb-3">
                             <label for="quantity" class="form-label">Unidad de Medida</label>
@@ -64,7 +64,7 @@ $ing = new ControllerIngredients();
                                 <?php echo $ing->ShowUnit(); ?>
                             </select>
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
+                        <button type="submit" class="btn btn-primary">
                             Agregar
                             <i class="bi bi-arrow-right-circle-fill"></i>
                         </button>

@@ -67,31 +67,32 @@ $beb = new ControllerBebidas();
         </div>
     </div>
 
+    <!-- Modal Agregar Bebida -->
     <div class="modal fade" id="modalBeb" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-primary" style="color:white">
                     <i class="bi bi-cup-straw" style="font-size:25px; color:white; margin-right: 10px;"></i>
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Aggregar Bebida</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Bebida</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="NewBeb" method="POST" action="../Modals/ModalBebidas.php">
                         <div class="mb-3">
                             <label for="desc" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" id="desc">
+                            <input type="text" class="form-control" id="desc" name="desc">
                             <label for="cant" class="form-label">Cantidad en Mililitros</label>
-                            <input type="text" class="form-control" id="cant">
+                            <input type="text" class="form-control" id="cant" name="cant">
                             <label for="ingre" class="form-label">Cantidad de Ingreso</label>
-                            <input type="number" class="form-control" id="ingre">
+                            <input type="number" class="form-control" id="ingre" name="ingre">
                             <label for="precio" class="form-label">Precio</label>
-                            <input type="text" class="form-control" id="precio" placeholder="00.00">
+                            <input type="text" class="form-control" id="precio" placeholder="00.00" name="price">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Agregar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Agregar</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>

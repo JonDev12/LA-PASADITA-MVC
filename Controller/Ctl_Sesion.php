@@ -1,7 +1,9 @@
 <?php
+session_start();
 
-// Incluye el archivo de conexión a la base de datos
+// Incluye el archivo de conexión a la base de datos y la clase Usuario
 require_once '../Model/Connection.php';
+require_once '../Controller/UserClass.php';
 
 // Instancia de la clase Connection
 $con = new Connection();
@@ -37,6 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Verificar si se encontró un registro
     if ($resultado->num_rows == 1) {
         // Usuario y contraseña válidos
+        $usuario_data = $resultado->fetch_assoc();
+        $usuario_obj = new Usuario($usuario_data['Username']);
+        $_SESSION['usuario'] = $usuario_obj;
         header('Location: ../View/MenuPrincipal.php');
         exit; // Asegura que el script se detenga inmediatamente después de la redirección
     } else {
@@ -44,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "<p>Usuario o contraseña incorrectos</p>";
         return false; // Devuelve false si la sesión no se inició correctamente
     }
+
     // Cerrar la consulta
     $consulta->close();
 } else {
@@ -51,3 +57,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo '<script>alert("ATENCION: No se pueden validar campos vacios ");</script>';
     return false;
 }
+?>
