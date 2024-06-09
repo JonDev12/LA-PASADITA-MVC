@@ -77,6 +77,7 @@ $ing = new ControllerIngredients();
         </div>
     </div>
 
+    <!-- Modal editar -->
     <div class="modal fade" id="modalIngEd" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -88,38 +89,29 @@ $ing = new ControllerIngredients();
                 </div>
 
                 <div class="modal-body">
-                    <form id="form-modal-NewOrder" method="POST" action="">
+                    <form id="form-modal-Ingrediente-edit" method="POST" >
+                    <input type="hidden" name="id" id="editIngredienteId">
                         <div class="mb-3">
-                            <label for="Desc" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" id="Desc">
+                            <label for="editDescripcion" class="form-label">Descripcion</label>
+                            <input type="text" class="form-control" id="editDescripcion" name="descripcion">
                         </div>
                         <div class="mb-3">
-                            <label for="ammount" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" id="ammount">
+                            <label for="editCantidad" class="form-label">Cantidad</label>
+                            <input type="number" class="form-control" id="editCantidad" name="cantidad">
                         </div>
-                        <div class="mb-3">
-                            <label for="quantity" class="form-label">Unidad de Medida</label>
-                            <select name="quantity" class="form-control" id="quantity">
-                                <?php echo $ing->ShowUnit(); ?>
-                            </select>
-                        </div>
-                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
-                            Editar
-                            <i class="bi bi-arrow-right-circle-fill"></i>
-                        </button>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" name="edit_Ingrediente">Editar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
     </div>
-
+<!-- Modal eliminar -->
     <div class="modal fade" id="modalIngDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-
                 <div class="modal-header bg-danger">
                     <i class="bi bi-trash-fill" style="font-size: 25px; color:white"></i>
                     <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Eliminar Ingrediente</h5>
@@ -129,18 +121,47 @@ $ing = new ControllerIngredients();
                     ¿Desea elimnar este Ingrediente?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
+                <form id="deleteIngredienteForm" method="POST" >
+                <input type="hidden" name="id" id="deleteIngredienteId">
+                    <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" name = "delete_Ingrediente">Eliminar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var editButtons = document.querySelectorAll('.edit-btn');
+        editButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var id = button.getAttribute('data-id');
+                var descripcion = button.getAttribute('data-descripcion');
+                var cantidad = button.getAttribute('data-cantidad');
+
+                document.getElementById('editIngredienteId').value = id;
+                document.getElementById('editDescripcion').value = descripcion;
+                document.getElementById('editCantidad').value = cantidad;
+            });
+        });
+
+        var deleteButtons = document.querySelectorAll('.delete-btn');
+        deleteButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var id = button.getAttribute('data-id');
+                document.getElementById('deleteIngredienteId').value = id;
+            });
+        });
+    });
+</script>
 
     <div class="contenedor" style="margin-top: 70px;">
         <div style="height: 400px; overflow-y: auto;">
             <table border="1" id="table-categories">
                 <thead>
                     <tr>
+                        <th scope="col" class="text-center encabezado">Id</th>
                         <th scope="col" class="text-center encabezado">Descripcion</th>
                         <th scope="col" class="text-center encabezado">Cantidad</th>
                         <th scope="col" class="text-center encabezado">Unidad Medida</th>

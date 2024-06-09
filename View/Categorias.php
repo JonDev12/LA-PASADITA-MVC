@@ -76,7 +76,7 @@ $cat = new ControllerCategories();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="editCategoryForm" method="POST" action="../Model/Mdl_Categories.php">
+                    <form id="editCategoryForm" method="POST">
                         <input type="hidden" name="id" id="editCategoryId">
                         <div class="mb-3">
                             <label for="txtDescripcion" class="form-label">Descripcion</label>
@@ -105,7 +105,7 @@ $cat = new ControllerCategories();
                     ¿Deseas eliminar esta categoria?
                 </div>
                 <div class="modal-footer">
-                    <form id="deleteCategoryForm" method="POST" action="../Model/Mdl_Categories.php">
+                    <form id="deleteCategoryForm" method="POST">
                         <input type="hidden" name="id" id="deleteCategoryId">
                         <button type="submit" class="btn btn-danger" name="delete_category">Eliminar</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
