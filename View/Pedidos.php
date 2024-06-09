@@ -58,7 +58,7 @@ $delv = new ControllerDelivery();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="Deliv" method="POST" action="../Modals/ModalPedidos.php">
                         <div class="mb-3">
                             <label for="state" class="form-label">Estado de Orden</label>
                             <select class="form-select" name="state" id="state" aria-label="Default select example">
@@ -78,7 +78,7 @@ $delv = new ControllerDelivery();
                             <label for="txt_ammount" class="form-label">Precio:</label>
                             <input type="text" class="form-control" id="txt_ammount" name="txt_ammount" placeholder="$00.00">
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="ValidateOrder()">
+                        <button type="submit" class="btn btn-primary" onclick="ValidateOrder()">
                             Agregar
                             <i class="bi bi-arrow-right-circle-fill"></i>
                         </button>
