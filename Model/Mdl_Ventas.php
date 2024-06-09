@@ -27,10 +27,10 @@ class ModelSales{
                     $tableBody .= '<td class="text-center">' . $row['cantidad'] . '</td>';
                     $tableBody .= '<td class="text-center">' . $row['total'] . '</td>';
                     $tableBody .= '<td>
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditCategory">
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalEditarVenta">
                                         <i class="bi bi-pencil-square"></i>
                                     </button>
-                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteCategory">
+                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalEliminarVenta">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </td>';

@@ -35,7 +35,7 @@ $sales = new ControllerSales();
                 <br>
                 Calcular Ventas
             </button>
-            
+
 
             <div class="row" style="position: absolute; top: 125px; left: 340px;">
                 <form class="d-flex" role="search">
@@ -76,6 +76,55 @@ $sales = new ControllerSales();
         </div>
     </div>
 
+    <!-- Modal Editar-->
+    <div class="modal fade" id="ModalEditarVenta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary">
+                    <i class="bi bi-pencil-square" style="color: white; font-size: 25px; margin-right:10px"></i>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">Editar Venta</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Cantidad</label>
+                            <input type="number" class="form-control" id="countProdDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Total</label>
+                            <input type="number" class="form-control" id="countProdDate" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="ModalEliminarVenta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <i class="bi bi-trash-fill" style="color: white; font-size: 25px; margin-right:10px"></i>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">Elimnar Venta</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p></p>¿Está seguro de eliminar la venta?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="contenedor" style="margin-top: 150px;">
         <div style="height: 500px; overflow-y: auto;">
             <table border="1" id="table-categories">
@@ -95,9 +144,9 @@ $sales = new ControllerSales();
             </table>
         </div>
     </div>
-    
-    <div> 
-        <?php echo $sales->GenPDF(); ?> 
+
+    <div>
+        <?php echo $sales->GenPDF(); ?>
     </div>
 
     <script src="../js_personalizado/ReferencePage.js"></script>
