@@ -1,7 +1,6 @@
 <?php
 
 require_once '../Model/Connection.php';
-
 class ModelIngredients{
     private $db;
     public function __construct($con){

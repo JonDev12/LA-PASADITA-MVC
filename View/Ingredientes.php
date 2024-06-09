@@ -175,7 +175,14 @@ $ing = new ControllerIngredients();
         </div>
     </div>
 
-    <script src="../js/bootstrap.min.js"></script>
+    <div>
+    <div align="center">
+        <a href="../fpdf/ReporteIngredientes.php" target="_blank">Obtener Reporte</a>
+    </div>
+    </div>
+
+
+    <script src="../js/botstrap.min.js"></script>
     <script src="../js_personalizado/ReferencePage.js"></script>
 </body>
 
