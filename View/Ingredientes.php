@@ -175,11 +175,10 @@ $ing = new ControllerIngredients();
         </div>
     </div>
 
-    <div>
     <div align="center">
         <a href="../fpdf/ReporteIngredientes.php" target="_blank">Obtener Reporte</a>
     </div>
-    </div>
+
 
 
     <script src="../js/botstrap.min.js"></script>

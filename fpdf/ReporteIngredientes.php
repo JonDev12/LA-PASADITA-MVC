@@ -35,11 +35,12 @@ $pdf = new FPDF('P', 'mm', 'A4');
 
 // Agregar una página
 $pdf->AddPage();
-
+$pdf->Image('../images/LogoLaPasadita.png', 15, 10, 30); // (ruta, posición x, posición y, tamaño)
+$pdf->Image('../images/LogoLaPasadita.png', 165, 10, 30);
 // Títulos y Encabezados
 $pdf->SetFont('helvetica', 'B', 14);
-$pdf->Cell(0, 10, 'Reporte de Ingredientes', 0, 1, 'C');
-$pdf->Ln(10);
+$pdf->Cell(0, 30, 'Reporte de Ingredientes', 0, 1, 'C');
+$pdf->Ln(5);
 
 
 // Posicionar la tabla centrada

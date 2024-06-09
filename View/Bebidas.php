@@ -108,7 +108,7 @@ $beb = new ControllerBebidas();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="editBebidaForm" method="POST" action="../Model/Mdl_Bebidas.php">
+                    <form id="editBebidaForm" method="POST">
                         <input type="hidden" name="id" id="editBebidaId">
                         <div class="mb-3">
                             <label for="editDesc" class="form-label">Descripcion</label>
@@ -143,7 +143,7 @@ $beb = new ControllerBebidas();
                     ¿Desea eliminar la Bebida?
                 </div>
                 <div class="modal-footer">
-                    <form id="deleteBebidaForm" method="POST" action="../Model/Mdl_Bebidas.php">
+                    <form id="deleteBebidaForm" method="POST">
                         <input type="hidden" name="id" id="deleteBebidaId">
                         <button type="submit" class="btn btn-danger" name="delete_bebida">Eliminar Bebida</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -185,7 +185,7 @@ $beb = new ControllerBebidas();
 
     <div class="contenedor" style="margin-top: 150px;">
         <div style="height: 500px; overflow-y: auto;">
-            <table border="1" id="table-categories">
+            <table border="1" id="table-bebidas">
                 <thead>
                     <th scope="col" class="text-center encabezado">#</th>
                     <th scope="col" class="text-center encabezado">Descripcion</th>
@@ -203,7 +203,9 @@ $beb = new ControllerBebidas();
         </div>
     </div>
 
-
+    <div align="center">
+        <a href="../fpdf/ReporteBebidas.php" target="_blank">Obtener Reporte</a>
+    </div>
 
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js_personalizado/ReferencePage.js"></script>

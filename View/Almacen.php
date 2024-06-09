@@ -53,7 +53,7 @@ $alm = new ControllerAlmacen();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="editItemForm" method="POST" action="../Model/Mdl_Almacen.php">
+                    <form id="editItemForm" method="POST">
                         <input type="hidden" name="id" id="editItemId">
                         <div class="mb-3">
                             <label for="editDesc">Descripcion</label>
@@ -88,7 +88,7 @@ $alm = new ControllerAlmacen();
                     ¿Deseas Eliminar este item?
                 </div>
                 <div class="modal-footer">
-                    <form id="deleteItemForm" method="POST" action="../Model/Mdl_Almacen.php">
+                    <form id="deleteItemForm" method="POST">
                         <input type="hidden" name="id" id="deleteItemId">
                         <button type="submit" class="btn btn-danger" name="delete_item">Eliminar</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
