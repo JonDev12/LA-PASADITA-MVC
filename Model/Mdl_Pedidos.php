@@ -26,14 +26,16 @@ class ModelDelivery{
                     $tableBody .= '<td>' . $row['hora'] . '</td>';
                     $tableBody .= '<td>' . $row['cantidad'] . '</td>';
                     $tableBody .= '<td>' . $row['monto'] . '</td>';
-                    $tableBody .= '<td>
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPedidosEd">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </button>
-                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalPedidosDe">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </td>';
+                    $tableBody .= "<td class='text-center'>
+                    <div class='text-center'>
+                        <button type='button' class='btn btn-primary edit-btn' data-bs-toggle='modal' data-bs-target='#modalEditarPedido' data-id='" . $row['IdPedidos'] . "' data-estado='" . $row['estado'] . "' data-cantidad='" . $row['cantidad'] . "' data-monto='" . $row['monto'] . "'>
+                                    <i class='bi bi-pencil-square'></i>
+                                </button>
+                                <button type='button' class='btn btn-danger delete-btn' data-bs-toggle='modal' data-bs-target='#modalEliminarPedido' data-id='" . $row['IdPedidos'] . "'>
+                                    <i class='bi bi-trash'></i>
+                                </button>
+                    </div>
+                </td>";
                     $tableBody .= '</tr>';
                 }
                 return $tableBody;
@@ -67,4 +69,51 @@ class ModelDelivery{
             echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
         }
     }
+    public function getPedido($id){
+        $query = $this->db->prepare('SELECT * FROM pedidos WHERE IdPedidos = ?');
+        $query->execute(array($id));
+        $pedido = $query->fetch(PDO::FETCH_OBJ);
+        return $pedido;
+    }
+
+    public function deletePedido($id){
+        try {
+            $query = "DELETE FROM pedidos WHERE IdPedidos = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            return true; // Éxito
+        } catch (Exception $e) {
+            echo "<script>alert('Error al eliminar el pedido " . $e->getMessage() . "');</script>";
+            return false; // Error
+        }
+    }
+
+    public function updatePedido($id, $estado, $cantidad, $monto){
+        try {
+            $query = "UPDATE pedidos SET Estado = ?, Cantidad = ?, Monto = ? WHERE IdPedidos = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ssdi", $estado, $cantidad, $monto, $id);
+            $stmt->execute();
+            return true; // Éxito
+        } catch (Exception $e) {
+            echo "<script>alert('Error al editar el pedido: " . $e->getMessage() . "');</script>";
+            return false; // Error
+        }
+    }
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $menu = new ModelDelivery(new Connection());
+    if (isset($_POST['edit_Pedido'])) {
+        $id = $_POST['id'];
+        $estado = $_POST['estado'];
+        $cantidad = $_POST['cantidad'];
+        $monto = $_POST['monto'];
+        $menu->updatePedido($id, $estado, $cantidad, $monto);
+    } elseif (isset($_POST['delete_Pedido'])) {
+        $id = $_POST['id'];
+        $menu->deletePedido($id);
+    }
+    header('Location: ' . $_SERVER['PHP_SELF']); // Redirige después de editar o eliminar
+    exit;
 }
