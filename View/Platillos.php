@@ -61,8 +61,32 @@ $platillos = new ControllerSaurces();
                         <!-- Mover el botón dentro del formulario -->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Agregar</button>
                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal eliminar -->
+    <div class="modal fade" id="ModalPlaDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <i class="bi bi-trash-fill" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Eliminar Ingrediente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Desea elimnar este Ingrediente?
+                </div>
+                <div class="modal-footer">
+                <form id="deletePlatilloForm" method="POST" >
+                <input type="hidden" name="id" id="deletePlatilloId">
+                    <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" name = "delete_Platillo">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </form>
                 </div>
             </div>
@@ -91,6 +115,31 @@ $platillos = new ControllerSaurces();
 
         </div>
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var editButtons = document.querySelectorAll('.edit-btn');
+        editButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var id = button.getAttribute('data-id');
+                var descripcion = button.getAttribute('data-descripcion');
+                var cantidad = button.getAttribute('data-cantidad');
+
+                document.getElementById('editIngredienteId').value = id;
+                document.getElementById('editDescripcion').value = descripcion;
+                document.getElementById('editCantidad').value = cantidad;
+            });
+        });
+
+        var deleteButtons = document.querySelectorAll('.delete-btn');
+        deleteButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var id = button.getAttribute('data-id');
+                document.getElementById('deletePlatilloId').value = id;
+            });
+        });
+    });
+</script>
 
     <script src="../js_personalizado/ReferencePage.js"></script>
     <script src="../js/bootstrap.min.js"></script>

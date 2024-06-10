@@ -24,10 +24,10 @@ class ModelSaurces {
                     $tableBody .= '<td class="text-center">' . $row['FechaCreacion'] . '</td>';
                     $tableBody .=   "<td class='text-center'>
                                         <div class='text-center'>
-                                            <button type='button' class='btn btn-primary edit-btn' data-bs-toggle='modal' data-bs-target='#ModalCatUp' data-id='" . $row['IdPLatillos'] . "' data-descripcion='" . $row['Descripcion'] . "'>
+                                            <button type='button' class='btn btn-primary edit-btn' data-bs-toggle='modal' data-bs-target='#ModalPlaUp' data-id='" . $row['IdPLatillos'] . "' data-descripcion='" . $row['Descripcion'] . "'>
                                                 <i class='bi bi-pencil-square'></i>
                                             </button>
-                                            <button type='button' class='btn btn-danger delete-btn' data-bs-toggle='modal' data-bs-target='#ModalCatDe' data-id='" . $row['IdPLatillos'] . "'>
+                                            <button type='button' class='btn btn-danger delete-btn' data-bs-toggle='modal' data-bs-target='#ModalPlaDe' data-id='" . $row['IdPLatillos'] . "'>
                                                 <i class='bi bi-trash'></i>
                                             </button>
                                         </div>
@@ -47,5 +47,45 @@ class ModelSaurces {
             echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
         }
     } 
+
+    public function deletePlatillo($id){
+        try {
+            $query = "DELETE FROM platillos WHERE IdPLatillos = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            return true; // Éxito
+        } catch (Exception $e) {
+            echo "<script>alert('Error al eliminar el ingrediente " . $e->getMessage() . "');</script>";
+            return false; // Error
+        }
+    }
+
+    public function updatePlatillo($id, $descripcion, $cantidad){
+        try {
+            $query = "UPDATE platillos SET Descripcion = ?, Cantidad = ? WHERE IdIngredientes = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ssi", $descripcion, $cantidad, $id);
+            $stmt->execute();
+            return true; // Éxito
+        } catch (Exception $e) {
+            echo "<script>alert('Error al editar el ingrediente: " . $e->getMessage() . "');</script>";
+            return false; // Error
+        }
+    }
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $menu = new ModelSaurces(new Connection());
+    if (isset($_POST['edit_Platillo'])) {
+        $id = $_POST['id'];
+        $descripcion = $_POST['descripcion'];
+        $cantidad = $_POST['cantidad'];
+        $menu->updatePlatillo($id, $descripcion, $cantidad);
+    } elseif (isset($_POST['delete_Platillo'])) {
+        $id = $_POST['id'];
+        $menu->deletePlatillo($id);
+    }
+    header('Location: ' . $_SERVER['PHP_SELF']); // Redirige después de editar o eliminar
+    exit;
 }
 ?>
