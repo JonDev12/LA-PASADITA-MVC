@@ -77,25 +77,21 @@ $platillos = new ControllerSaurces();
     <div class="modal fade" id="ModalPlaUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header bg-primary">
+                <div class="modal-header bg-secondary">
                     <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">Agregar Platillo</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="../Modals/ModalPlatillos.php" method="POST">
+                    <form action="../Modals/ModalPlatillos.php" method="POST" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="descr">Descripcion</label>
                             <input type="text" name="descr" id="descr" class="form-control">
                         </div>
-                        
                         <div class="mb-3">
-                            <label for="cat">Categoria del platillo</label>
-                            <select name="cat" id="cat" class="form-control">
-                                <?php
-                                echo $platillos->getAllCategories();
-                                ?>
-                            </select>
+                            <label for="precio">Precio</label>
+                            <input type="number" name="precio" id="precio" class="form-control" step="0.01" placeholder="$00.00">
                         </div>
+                        
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary">Agregar</button>
@@ -105,6 +101,7 @@ $platillos = new ControllerSaurces();
             </div>
         </div>
     </div>
+
 
     <!-- Modal eliminar -->
     <div class="modal fade" id="ModalPlaDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
