@@ -1,7 +1,7 @@
 <?php
 
 require_once '../Model/Connection.php';
-
+require_once '../fpdf/fpdf.php';
 class ModelAlmacen
 {
     private $db;

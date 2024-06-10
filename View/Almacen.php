@@ -128,7 +128,7 @@ $alm = new ControllerAlmacen();
     </script>
 
 
-    <div class="contenedor" style="margin-top: 20px;">
+    <div class="contenedor" style="margin-top: 60px;">
         <div style="height: 500px; overflow-y: auto;">
             <table border="1" id="table-almacen">
                 <thead>
@@ -147,7 +147,9 @@ $alm = new ControllerAlmacen();
             </table>
         </div>
     </div>
-
+    <div align="center">
+        <a href="../fpdf/ReporteAlmacen.php" target="_blank">Obtener Reporte</a>
+    </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js_personalizado/ReferencePage.js"></script>
 </body>
