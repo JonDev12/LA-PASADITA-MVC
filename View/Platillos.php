@@ -82,7 +82,7 @@ $platillos = new ControllerSaurces();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="../Modals/ModalPlatillos.php" method="POST" enctype="multipart/form-data">
+                <form id="form-modal-Platillo-edit" method="POST" >
                         <div class="mb-3">
                             <label for="descr">Descripcion</label>
                             <input type="text" name="descr" id="descr" class="form-control">
@@ -94,7 +94,7 @@ $platillos = new ControllerSaurces();
                         
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Agregar</button>
+                            <button type="submit" class="btn btn-primary">Editar</button>
                         </div>
                     </form>
                 </div>
@@ -152,6 +152,18 @@ $platillos = new ControllerSaurces();
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            var editButtons = document.querySelectorAll('.edit-btn');
+        editButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var id = button.getAttribute('data-id');
+                var descripcion = button.getAttribute('data-descripcion');
+                var precio = button.getAttribute('data-precio');
+
+                document.getElementById('descr').value = descripcion;
+                document.getElementById('precio').value = precio;
+            });
+        });
+            
             var deleteButtons = document.querySelectorAll('.delete-btn');
             deleteButtons.forEach(function(button) {
                 button.addEventListener('click', function() {
