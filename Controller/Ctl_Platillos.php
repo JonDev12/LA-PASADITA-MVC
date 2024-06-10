@@ -11,26 +11,7 @@ class ControllerSaurces{
     }
 
     public function getAllSaurcesList(){
-        $platillos = $this->model->getAllSaurces();
-        foreach ($platillos as $platillo) {
-            print '<div class="card" style="width: 18rem;">
-                    <img src="'.$platillo['imagen'].'" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">'.$platillo['descripcion'].'</h5>
-                            <p class="card-text">Categoría: '.$platillo['categoria'].'</p>
-                            <p class="card-text">Fecha de Creación: '.$platillo['fecha_creacion'].'</p>
-                        </div>
-                    </div>';
-        }
-
-    }
-
-    public function getDelivery($id){
-        return $this->model->getOrder($id);
-    }
-
-    public function getDeliveriesByUser($id){
-        return $this->model->getOrdersByUser($id);
+        return $this->model->getAllSources();
     }
 }
 ?>

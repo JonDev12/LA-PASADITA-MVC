@@ -9,41 +9,43 @@ class ModelSaurces {
         $this->db = $con->getConnection();
     }
 
-    public function getAllSaurces() {
+    public function GetAllSources() {
         try {
-            $platillos = array();
-            $sql = "SELECT 
-                        platillos.ImagenPlatillo, platillos.Descripcion,
-                        categorias.Descripcion AS Categoria, platillos.FechaCreacion
-                    FROM platillos
-                    INNER JOIN 
-                        categorias_has_platillos
-                    ON 
-                        platillos.IdPLatillos = categorias_has_platillos.IdPLatillos
-                    INNER JOIN 
-                        categorias
-                    ON 
-                        categorias.IdCategorias = categorias_has_platillos.IdCategorias;";
-            $stmt = $this->db->prepare($sql);
-            $stmt->execute();   
+            $query = "SELECT IdPLatillos, Descripcion, FechaCreacion FROM platillos";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
             $result = $stmt->get_result();
-            if($result->num_rows > 0){
-                while($row = $result->fetch_assoc()){
-                    $platillo = array(
-                        'imagen' => $row['ImagenPlatillo'],
-                        'descripcion' => $row['Descripcion'],
-                        'categoria' => $row['Categoria'],
-                        'fecha_creacion' => $row['FechaCreacion']
-                    );
-                    $platillos[] = $platillo;
+            if ($result->num_rows > 0) {
+                $tableBody = '';
+                while ($row = $result->fetch_assoc()) {
+                    $tableBody .= '<tr>';
+                    $tableBody .= '<td class="text-center">' . $row['IdPLatillos'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['Descripcion'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['FechaCreacion'] . '</td>';
+                    $tableBody .=   "<td class='text-center'>
+                                        <div class='text-center'>
+                                            <button type='button' class='btn btn-primary edit-btn' data-bs-toggle='modal' data-bs-target='#ModalCatUp' data-id='" . $row['IdPLatillos'] . "' data-descripcion='" . $row['Descripcion'] . "'>
+                                                <i class='bi bi-pencil-square'></i>
+                                            </button>
+                                            <button type='button' class='btn btn-danger delete-btn' data-bs-toggle='modal' data-bs-target='#ModalCatDe' data-id='" . $row['IdPLatillos'] . "'>
+                                                <i class='bi bi-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>";
+                    $tableBody .= '</tr>';
                 }
+                return $tableBody;
+            } else {
+                return '
+                        <tr class="text-center">
+                            <td colspan="4" class="text-center">
+                                <h7 class="text-center">No hay datos aun</h7>
+                            </td>
+                        </tr>';
             }
-            return $platillos;
-        } catch(Exception $e) {
-            echo $e->getMessage();
-            return array(); // Devolver un array vacío en caso de error
+        } catch (Exception $e) {
+            echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
         }
-    }
-    
+    } 
 }
 ?>

@@ -14,6 +14,7 @@ $platillos = new ControllerSaurces();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Platillos</title>
 </head>
+
 <body>
     <nav class="barra navbar">
         <div class="container-fluid">
@@ -27,15 +28,72 @@ $platillos = new ControllerSaurces();
     </nav>
     <br>
     <h1 class="text-center" style="font-size: 30px">Nuestros Platillos</h1>
-    <!--Lista de Platillos-->
-    <div>
-        <div class="card-group">
-        <?php
-        print $platillos->getAllSaurcesList();
-        ?>
+
+
+    <div class="col" style="margin-left: 50px; margin-top:50px">
+        <div>
+            <button class="col btn btn-primary b_add" data-bs-toggle="modal" data-bs-target="#ModalPl">
+                <i class="bi bi-bag-plus-fill"></i>
+                <br>
+                Agregar Platillo
+            </button>
         </div>
     </div>
+
+    <div class="modal fade" id="ModalPl" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">Agregar Platillo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="../Modals/ModalPlatillos.php" method="POST">
+                        <label for="descr">Descripcion</label>
+                        <input type="text" name="descr" id="descr" class="form-control">
+                        <label for="cat">Categoria del platillo</label>
+                        <select name="cat" id="cat" class="form-control">
+                            <option value="1" selected>Entradas</option>
+                            <option value="2">Postres</option>
+                            <option value="3">Bebidas</option>
+                            <option value="4">Plato fuerte</option>
+                        </select>
+                        <!-- Mover el botón dentro del formulario -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Lista de Platillos-->
+
+    <div class="contenedor" style="margin-top: 150px;">
+        <div style="height: 500px; overflow-y: auto;">
+            <table border="1" id="table-categories">
+                <thead>
+                    <th scope="col" class="text-center encabezado">#</th>
+                    <th scope="col" class="text-center encabezado">Descripcion</th>
+                    <th scope="col" class="text-center encabezado">Creado</th>
+                    <th scope="col" class="text-center encabezado">Acciones</th>
+                </thead>
+                <tbody>
+                    <?php
+                    echo $platillos->getAllSaurcesList();
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <div>
+
+        </div>
+    </div>
+
     <script src="../js_personalizado/ReferencePage.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 </body>
+
 </html>

@@ -38,7 +38,7 @@ class ModelAlmacen
 
     public function GetAllItems() {
         try {
-            $query = "SELECT IdAlmacen, Descripcion, Total, Diponibles, Defectuosos FROM Almacen";
+            $query = "SELECT IdAlmacen, Descripcion, Total, Disponibles, Defectuosos FROM Almacen";
             $stmt = $this->db->prepare($query);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -49,11 +49,11 @@ class ModelAlmacen
                     $tableBody .= '<td class="text-center">' . $row['IdAlmacen'] . '</td>';
                     $tableBody .= '<td class="text-center">' . $row['Descripcion'] . '</td>';
                     $tableBody .= '<td class="text-center">' . $row['Total'] . '</td>';
-                    $tableBody .= '<td class="text-center">' . $row['Diponibles'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['Disponibles'] . '</td>';
                     $tableBody .= '<td class="text-center">' . $row['Defectuosos'] . '</td>';
                     $tableBody .=   "<td class='text-center'>
                                         <div class='text-center'>
-                                            <button type='button' class='btn btn-primary edit-item-btn' data-bs-toggle='modal' data-bs-target='#modalAlmEd' data-id='" . $row['IdAlmacen'] . "' data-descripcion='" . $row['Descripcion'] . "' data-total='" . $row['Total'] . "' data-disponibles='" . $row['Diponibles'] . "' data-defectuosos='" . $row['Defectuosos'] . "'>
+                                            <button type='button' class='btn btn-primary edit-item-btn' data-bs-toggle='modal' data-bs-target='#modalAlmEd' data-id='" . $row['IdAlmacen'] . "' data-descripcion='" . $row['Descripcion'] . "' data-total='" . $row['Total'] . "' data-disponibles='" . $row['Disponibles'] . "' data-defectuosos='" . $row['Defectuosos'] . "'>
                                                 <i class='bi bi-pencil-square'></i>
                                             </button>
                                             <button type='button' class='btn btn-danger delete-item-btn' data-bs-toggle='modal' data-bs-target='#modalAlmDe' data-id='" . $row['IdAlmacen'] . "'>
