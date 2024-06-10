@@ -28,7 +28,9 @@ $platillos = new ControllerSaurces();
     </nav>
     <br>
     <h1 class="text-center" style="font-size: 30px">Nuestros Platillos</h1>
-
+    <div align="center">
+        <a href="../fpdf/ReportePlatillos.php" target="_blank">Obtener Reporte</a>
+    </div>
 
     <div class="col" style="margin-left: 50px; margin-top:50px">
         <div>
@@ -40,8 +42,6 @@ $platillos = new ControllerSaurces();
         </div>
     </div>
 
-    
-
     <div class="modal fade" id="ModalPl" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -51,22 +51,21 @@ $platillos = new ControllerSaurces();
                 </div>
                 <div class="modal-body">
                     <form action="../Modals/ModalPlatillos.php" method="POST">
-                    <div class="mb-3">
-                        <label for="descr">Descripcion</label>
-                        <input type="text" name="descr" id="descr" class="form-control">
-                    </div>
                         <div class="mb-3">
-                        <label for="cat">Categoria del platillo</label>
-                        <select name="cat" id="cat" class="form-control">
-                            <option value="1" selected>Entradas</option>
-                            <option value="2">Postres</option>
-                            <option value="3">Bebidas</option>
-                            <option value="4">Plato fuerte</option>
-                        </select>
-                        <!-- Mover el botón dentro del formulario -->
+                            <label for="descr">Descripcion</label>
+                            <input type="text" name="descr" id="descr" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cat">Categoria del platillo</label>
+                            <select name="cat" id="cat" class="form-control">
+                                <?php
+                                echo $platillos->getAllCategories();
+                                ?>
+                            </select>
+                        </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Editar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Agregar</button>
                         </div>
                     </form>
                 </div>
@@ -74,6 +73,38 @@ $platillos = new ControllerSaurces();
         </div>
     </div>
 
+    <!-- Modal editar -->
+    <div class="modal fade" id="ModalPlaUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">Agregar Platillo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="../Modals/ModalPlatillos.php" method="POST">
+                        <div class="mb-3">
+                            <label for="descr">Descripcion</label>
+                            <input type="text" name="descr" id="descr" class="form-control">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="cat">Categoria del platillo</label>
+                            <select name="cat" id="cat" class="form-control">
+                                <?php
+                                echo $platillos->getAllCategories();
+                                ?>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal eliminar -->
     <div class="modal fade" id="ModalPlaDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
@@ -81,11 +112,11 @@ $platillos = new ControllerSaurces();
             <div class="modal-content">
                 <div class="modal-header bg-danger">
                     <i class="bi bi-trash-fill" style="font-size: 25px; color:white"></i>
-                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Eliminar Ingrediente</h5>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Eliminar Platillo</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ¿Desea elimnar este Ingrediente?
+                    ¿Desea eliminar este platillo?
                 </div>
                 <div class="modal-footer">
                     <form id="deletePlatilloForm" method="POST">
@@ -98,16 +129,19 @@ $platillos = new ControllerSaurces();
         </div>
     </div>
 
-    <!--Lista de Platillos-->
-
-    <div class="contenedor" style="margin-top: 150px;">
+    <!-- Lista de Platillos -->
+    <div class="contenedor" style="margin-top: 90px;">
         <div style="height: 500px; overflow-y: auto;">
-            <table border="1" id="table-categories">
-                <thead>
-                    <th scope="col" class="text-center encabezado">#</th>
-                    <th scope="col" class="text-center encabezado">Descripcion</th>
-                    <th scope="col" class="text-center encabezado">Creado</th>
-                    <th scope="col" class="text-center encabezado">Acciones</th>
+            <table border="1" id="table-categories" class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="text-center encabezado">#</th>
+                        <th scope="col" class="text-center encabezado">Descripcion</th>
+                        <th scope="col" class="text-center encabezado">Precio</th>
+                        <th scope="col" class="text-center encabezado">Imagen</th>
+                        <th scope="col" class="text-center encabezado">Fecha de Creacion</th>
+                        <th scope="col" class="text-center encabezado">Acciones</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <?php
@@ -116,29 +150,11 @@ $platillos = new ControllerSaurces();
                 </tbody>
             </table>
         </div>
-        <div>
+    </div>
 
-        </div>
-    </div>
-    <div align="center">
-        <a href="../fpdf/ReportePlatillos.php" target="_blank">Obtener Reporte</a>
-    </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var editButtons = document.querySelectorAll('.edit-btn');
-        editButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                var id = button.getAttribute('data-id');
-                var descripcion = button.getAttribute('data-descripcion');
-                var cantidad = button.getAttribute('data-cantidad');
-
-                document.getElementById('editIngredienteId').value = id;
-                document.getElementById('editDescripcion').value = descripcion;
-                document.getElementById('editCantidad').value = cantidad;
-            });
-        });
-
+        document.addEventListener('DOMContentLoaded', function() {
             var deleteButtons = document.querySelectorAll('.delete-btn');
             deleteButtons.forEach(function(button) {
                 button.addEventListener('click', function() {
