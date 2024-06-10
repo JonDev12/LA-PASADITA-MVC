@@ -81,11 +81,11 @@ class ModelSaurces {
         }
     }
 
-    public function updatePlatillo($id, $descripcion, $cantidad){
+    public function updatePlatillo( $descripcion, $categoria){
         try {
-            $query = "UPDATE platillos SET Descripcion = ?, Cantidad = ? WHERE IdIngredientes = ?";
+            $query = "CALL EditDishes(".$descripcion.", ".$categoria.");";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param("ssi", $descripcion, $cantidad, $id);
+            $stmt->bind_param("ssi", $descripcion, $categoria);
             $stmt->execute();
             return true; // Éxito
         } catch (Exception $e) {
