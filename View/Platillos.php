@@ -68,6 +68,33 @@ $platillos = new ControllerSaurces();
         </div>
     </div>
 
+    <div class="modal fade" id="ModalPlaEd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">Editar Platillo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="../Modals/ModalPlatillos.php" method="POST">
+                        <label for="descr">Descripcion</label>
+                        <input type="text" name="descr" id="descr" class="form-control">
+                        <label for="cat">Categoria del platillo</label>
+                        <select name="cat" id="cat" class="form-control">
+                            <?php
+                            echo $platillos->getAllCategories();
+                            ?>
+                        </select>
+                        <!-- Mover el botón dentro del formulario -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Editar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal eliminar -->
     <div class="modal fade" id="ModalPlaDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
@@ -82,10 +109,10 @@ $platillos = new ControllerSaurces();
                     ¿Desea elimnar este Ingrediente?
                 </div>
                 <div class="modal-footer">
-                <form id="deletePlatilloForm" method="POST" >
-                <input type="hidden" name="id" id="deletePlatilloId">
-                    <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" name = "delete_Platillo">Eliminar</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <form id="deletePlatilloForm" method="POST">
+                        <input type="hidden" name="id" id="deletePlatilloId">
+                        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" name="delete_Platillo">Eliminar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </form>
                 </div>
             </div>
@@ -116,29 +143,29 @@ $platillos = new ControllerSaurces();
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var editButtons = document.querySelectorAll('.edit-btn');
-        editButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                var id = button.getAttribute('data-id');
-                var descripcion = button.getAttribute('data-descripcion');
-                var cantidad = button.getAttribute('data-cantidad');
+        document.addEventListener('DOMContentLoaded', function() {
+            var editButtons = document.querySelectorAll('.edit-btn');
+            editButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var id = button.getAttribute('data-id');
+                    var descripcion = button.getAttribute('data-descripcion');
+                    var cantidad = button.getAttribute('data-cantidad');
 
-                document.getElementById('editIngredienteId').value = id;
-                document.getElementById('editDescripcion').value = descripcion;
-                document.getElementById('editCantidad').value = cantidad;
+                    document.getElementById('editIngredienteId').value = id;
+                    document.getElementById('editDescripcion').value = descripcion;
+                    document.getElementById('editCantidad').value = cantidad;
+                });
+            });
+
+            var deleteButtons = document.querySelectorAll('.delete-btn');
+            deleteButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var id = button.getAttribute('data-id');
+                    document.getElementById('deletePlatilloId').value = id;
+                });
             });
         });
-
-        var deleteButtons = document.querySelectorAll('.delete-btn');
-        deleteButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                var id = button.getAttribute('data-id');
-                document.getElementById('deletePlatilloId').value = id;
-            });
-        });
-    });
-</script>
+    </script>
 
     <script src="../js_personalizado/ReferencePage.js"></script>
     <script src="../js/bootstrap.min.js"></script>

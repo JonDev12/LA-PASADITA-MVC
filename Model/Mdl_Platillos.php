@@ -24,7 +24,7 @@ class ModelSaurces {
                     $tableBody .= '<td class="text-center">' . $row['FechaCreacion'] . '</td>';
                     $tableBody .=   "<td class='text-center'>
                                         <div class='text-center'>
-                                            <button type='button' class='btn btn-primary edit-btn' data-bs-toggle='modal' data-bs-target='#ModalPlaUp' data-id='" . $row['IdPLatillos'] . "' data-descripcion='" . $row['Descripcion'] . "'>
+                                            <button type='button' class='btn btn-primary edit-btn' data-bs-toggle='modal' data-bs-target='#ModalPlaEd' data-id='" . $row['IdPLatillos'] . "' data-descripcion='" . $row['Descripcion'] . "'>
                                                 <i class='bi bi-pencil-square'></i>
                                             </button>
                                             <button type='button' class='btn btn-danger delete-btn' data-bs-toggle='modal' data-bs-target='#ModalPlaDe' data-id='" . $row['IdPLatillos'] . "'>
