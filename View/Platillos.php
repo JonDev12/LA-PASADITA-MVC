@@ -58,12 +58,11 @@ $platillos = new ControllerSaurces();
                         <div class="mb-3">
                         <label for="cat">Categoria del platillo</label>
                         <select name="cat" id="cat" class="form-control">
-                        <option value="1" selected>Entradas</option>
+                            <option value="1" selected>Entradas</option>
                             <option value="2">Postres</option>
                             <option value="3">Bebidas</option>
                             <option value="4">Plato fuerte</option>
-                                </select>
-                            </div>
+                        </select>
                         <!-- Mover el botón dentro del formulario -->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -75,37 +74,6 @@ $platillos = new ControllerSaurces();
         </div>
     </div>
 
- <!-- Modal editar -->
- <div class="modal fade" id="modalPlaEd" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-
-                <div class="modal-header bg-secondary">
-                    <i class="bi bi-pencil-square" style="font-size: 25px; color:white"></i>
-                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Editar Ingrediente</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form id="form-modal-Platillo-edit" method="POST" >
-                    <input type="hidden" name="id" id="editPlatilloId">
-                        <div class="mb-3">
-                            <label for="editDescripcion" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" id="editDescripcion" name="descripcion">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editPrecio" class="form-label">Precio</label>
-                            <input type="number" class="form-control" id="editPrecio" name="precio">
-                        </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" name="edit_Platillo">Editar</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Modal eliminar -->
     <div class="modal fade" id="ModalPlaDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
@@ -120,10 +88,10 @@ $platillos = new ControllerSaurces();
                     ¿Desea elimnar este Ingrediente?
                 </div>
                 <div class="modal-footer">
-                <form id="deletePlatilloForm" method="POST" >
-                <input type="hidden" name="id" id="deletePlatilloId">
-                    <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" name = "delete_Platillo">Eliminar</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <form id="deletePlatilloForm" method="POST">
+                        <input type="hidden" name="id" id="deletePlatilloId">
+                        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" name="delete_Platillo">Eliminar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </form>
                 </div>
             </div>
@@ -163,23 +131,23 @@ $platillos = new ControllerSaurces();
             button.addEventListener('click', function() {
                 var id = button.getAttribute('data-id');
                 var descripcion = button.getAttribute('data-descripcion');
-                var precio = button.getAttribute('data-precio');
+                var cantidad = button.getAttribute('data-cantidad');
 
-                document.getElementById('editPlatilloId').value = id;
+                document.getElementById('editIngredienteId').value = id;
                 document.getElementById('editDescripcion').value = descripcion;
-                document.getElementById('editPrecio').value = precio;
+                document.getElementById('editCantidad').value = cantidad;
             });
         });
 
-        var deleteButtons = document.querySelectorAll('.delete-btn');
-        deleteButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                var id = button.getAttribute('data-id');
-                document.getElementById('deletePlatilloId').value = id;
+            var deleteButtons = document.querySelectorAll('.delete-btn');
+            deleteButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var id = button.getAttribute('data-id');
+                    document.getElementById('deletePlatilloId').value = id;
+                });
             });
         });
-    });
-</script>
+    </script>
 
     <script src="../js_personalizado/ReferencePage.js"></script>
     <script src="../js/bootstrap.min.js"></script>
