@@ -9,6 +9,7 @@ class Pagesredirect {
         this.b6 = document.getElementById('Bebidas');
         this.b7 = document.getElementById('Categorias');
         this.b8 = document.getElementById('Almacen');
+        this.b9 = document.getElementById('Bitacora');
 
         // Asignar eventos click a los botones
         this.b1.addEventListener('click', () => this.OnRedirect(1));
@@ -19,6 +20,7 @@ class Pagesredirect {
         this.b6.addEventListener('click', () => this.OnRedirect(6));
         this.b7.addEventListener('click', () => this.OnRedirect(7));
         this.b8.addEventListener('click', () => this.OnRedirect(8));
+        this.b9.addEventListener('click', () => this.OnRedirect(9));
     }
 
     OnRedirect(pointer) {
@@ -47,6 +49,9 @@ class Pagesredirect {
                 break;
             case 8:
                 window.location.href = "../View/Almacen.php";
+                break;
+            case 9:
+                window.location.href = "../View/Bitacora.php";
                 break;
             default:
                 console.error("Invalid pointer value:", pointer);

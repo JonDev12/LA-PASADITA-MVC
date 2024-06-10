@@ -197,13 +197,13 @@ $s = new Menu();
                     <img src="../images/almacen.png" class="iconos" alt="">
                     <span class="titulos">Almacen</span>
                 </button>
-                <button class="botones-offcanvas " id="Mas">
-                    <span class="text-center">Bitacora</span>
+                <button class="botones-offcanvas" id="Bitacora">
+                    <img src="../images/almacen.png" class="iconos" alt="">
+                    <span class="titulos">Bitacora</span>
                 </button>
             </ul>
         </div>
     </div>
-
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js_personalizado/Pagesredirect.js"></script>
     <script src="../js_personalizado/ReferencePage.js"></script>
