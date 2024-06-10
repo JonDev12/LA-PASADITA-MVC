@@ -26,7 +26,7 @@ $s = new Menu();
                     <ul class="dropdown-menu " style="background-color: #c4f1fc;">
                         <li><a class="dropdown-item" href="#">Perfil</a></li>
                         <li><a class="dropdown-item" href="#">Configuracion</a></li>
-                        <li><a class="dropdown-item" href="#">Respaldo de BD</a></li>
+                        <li><a class="dropdown-item" href="../Model/Backup.php">Respaldo de BD</a></li>
                         <li><a class="dropdown-item" href="#" onclick="redireccion_IniciarSesion()">Salir</a></li>
                     </ul>
                 </div>
