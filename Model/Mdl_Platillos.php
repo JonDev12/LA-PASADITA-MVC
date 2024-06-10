@@ -48,6 +48,26 @@ class ModelSaurces {
         }
     } 
 
+    public function GetAllCategories(){
+        try {
+            $query = "SELECT Descripcion FROM categorias";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $tableBody = '';
+                while ($row = $result->fetch_assoc()) {
+                    $tableBody .= '<option>' . $row['Descripcion'] . '</option>';
+                }
+                return $tableBody;
+            } else {
+                return '<option value="0">No hay categorias</option>';
+            }
+        } catch (Exception $e) {
+            echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
+        }
+    }
+
     public function deletePlatillo($id){
         try {
             $query = "DELETE FROM platillos WHERE IdPLatillos = ?";

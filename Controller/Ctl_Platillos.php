@@ -13,5 +13,9 @@ class ControllerSaurces{
     public function getAllSaurcesList(){
         return $this->model->getAllSources();
     }
+
+    public function getAllCategories(){
+        return $this->model->getAllCategories();
+    }
 }
 ?>

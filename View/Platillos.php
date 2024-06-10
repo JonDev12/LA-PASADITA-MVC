@@ -53,10 +53,9 @@ $platillos = new ControllerSaurces();
                         <input type="text" name="descr" id="descr" class="form-control">
                         <label for="cat">Categoria del platillo</label>
                         <select name="cat" id="cat" class="form-control">
-                            <option value="1" selected>Entradas</option>
-                            <option value="2">Postres</option>
-                            <option value="3">Bebidas</option>
-                            <option value="4">Plato fuerte</option>
+                            <?php
+                            echo $platillos->getAllCategories();
+                            ?>
                         </select>
                         <!-- Mover el botón dentro del formulario -->
                         <div class="modal-footer">
