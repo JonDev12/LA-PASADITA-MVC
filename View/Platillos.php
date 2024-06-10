@@ -40,6 +40,8 @@ $platillos = new ControllerSaurces();
         </div>
     </div>
 
+    
+
     <div class="modal fade" id="ModalPl" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -49,19 +51,23 @@ $platillos = new ControllerSaurces();
                 </div>
                 <div class="modal-body">
                     <form action="../Modals/ModalPlatillos.php" method="POST">
+                    <div class="mb-3">
                         <label for="descr">Descripcion</label>
                         <input type="text" name="descr" id="descr" class="form-control">
+                    </div>
+                        <div class="mb-3">
                         <label for="cat">Categoria del platillo</label>
                         <select name="cat" id="cat" class="form-control">
-                            <option value="1" selected>Entradas</option>
+                        <option value="1" selected>Entradas</option>
                             <option value="2">Postres</option>
                             <option value="3">Bebidas</option>
                             <option value="4">Plato fuerte</option>
-                        </select>
+                                </select>
+                            </div>
                         <!-- Mover el botón dentro del formulario -->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Agregar</button>
+                            <button type="submit" class="btn btn-primary">Editar</button>
                         </div>
                     </form>
                 </div>
@@ -69,6 +75,37 @@ $platillos = new ControllerSaurces();
         </div>
     </div>
 
+ <!-- Modal editar -->
+ <div class="modal fade" id="modalPlaEd" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header bg-secondary">
+                    <i class="bi bi-pencil-square" style="font-size: 25px; color:white"></i>
+                    <h5 class="modal-title text-center" style="color:white; margin-left:10px" id="modalRegistroLabel">Editar Ingrediente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="form-modal-Platillo-edit" method="POST" >
+                    <input type="hidden" name="id" id="editPlatilloId">
+                        <div class="mb-3">
+                            <label for="editDescripcion" class="form-label">Descripcion</label>
+                            <input type="text" class="form-control" id="editDescripcion" name="descripcion">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPrecio" class="form-label">Precio</label>
+                            <input type="number" class="form-control" id="editPrecio" name="precio">
+                        </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" name="edit_Platillo">Editar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal eliminar -->
     <div class="modal fade" id="ModalPlaDe" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
@@ -115,6 +152,9 @@ $platillos = new ControllerSaurces();
 
         </div>
     </div>
+    <div align="center">
+        <a href="../fpdf/ReportePlatillos.php" target="_blank">Obtener Reporte</a>
+    </div>
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -123,11 +163,11 @@ $platillos = new ControllerSaurces();
             button.addEventListener('click', function() {
                 var id = button.getAttribute('data-id');
                 var descripcion = button.getAttribute('data-descripcion');
-                var cantidad = button.getAttribute('data-cantidad');
+                var precio = button.getAttribute('data-precio');
 
-                document.getElementById('editIngredienteId').value = id;
+                document.getElementById('editPlatilloId').value = id;
                 document.getElementById('editDescripcion').value = descripcion;
-                document.getElementById('editCantidad').value = cantidad;
+                document.getElementById('editPrecio').value = precio;
             });
         });
 

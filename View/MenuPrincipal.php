@@ -135,7 +135,9 @@ $s = new Menu();
             </div>
         </div>
     </div>
-
+    <div align="center" style="margin-top: 120px;">
+    <a href="../View/Bitacora.php" target="">Ir a Bitacora</a>
+</div>
 
     <div class="contenedor" style="margin-top: 190px;">
         <div style="height: 500px; overflow-y: auto;">

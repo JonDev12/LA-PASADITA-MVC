@@ -180,8 +180,8 @@ $ing = new ControllerIngredients();
     </div>
 
 
-
-    <script src="../js/botstrap.min.js"></script>
+    <script src = "../js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script src="../js_personalizado/ReferencePage.js"></script>
 </body>
 

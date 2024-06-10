@@ -11,7 +11,7 @@ class ModelSaurces {
 
     public function GetAllSources() {
         try {
-            $query = "SELECT IdPLatillos, Descripcion, FechaCreacion FROM platillos";
+            $query = "SELECT * FROM platillos";
             $stmt = $this->db->prepare($query);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -21,14 +21,21 @@ class ModelSaurces {
                     $tableBody .= '<tr>';
                     $tableBody .= '<td class="text-center">' . $row['IdPLatillos'] . '</td>';
                     $tableBody .= '<td class="text-center">' . $row['Descripcion'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['Precio'] . '</td>';
+                    $tableBody .= '<td class="text-center">' . $row['ImagenPlatillo'] . '</td>';
                     $tableBody .= '<td class="text-center">' . $row['FechaCreacion'] . '</td>';
                     $tableBody .=   "<td class='text-center'>
                                         <div class='text-center'>
-                                            <button type='button' class='btn btn-primary edit-btn' data-bs-toggle='modal' data-bs-target='#ModalPlaUp' data-id='" . $row['IdPLatillos'] . "' data-descripcion='" . $row['Descripcion'] . "'>
-                                                <i class='bi bi-pencil-square'></i>
-                                            </button>
-                                            <button type='button' class='btn btn-danger delete-btn' data-bs-toggle='modal' data-bs-target='#ModalPlaDe' data-id='" . $row['IdPLatillos'] . "'>
-                                                <i class='bi bi-trash'></i>
+                                           <button type='button' class='btn btn-primary edit-btn' data-bs-toggle='modal' data-bs-target='#ModalPlaUp' 
+                            data-id='" . $row['IdPLatillos'] . "' 
+                            data-descripcion='" . $row['Descripcion'] . "' 
+                            data-precio='" . $row['Precio'] . "' 
+                            data-imagenplatillo='" . $row['ImagenPlatillo'] . "' 
+                            data-fechacreacion='" . $row['FechaCreacion'] . "'>
+                            <i class='bi bi-pencil-square'></i>
+                        </button>
+                        <button type='button' class='btn btn-danger delete-btn' data-bs-toggle='modal' data-bs-target='#modalPlaDe' data-id='" . $row['IdPLatillos'] . "'>
+                                                <i class='bi bi-trash-fill'></i>
                                             </button>
                                         </div>
                                     </td>";
@@ -61,15 +68,15 @@ class ModelSaurces {
         }
     }
 
-    public function updatePlatillo($id, $descripcion, $cantidad){
+    public function updatePlatillo($id, $descripcion, $precio){
         try {
-            $query = "UPDATE platillos SET Descripcion = ?, Cantidad = ? WHERE IdIngredientes = ?";
+            $query = "UPDATE platillos SET Descripcion = ?, Precio = ? WHERE IdPLatillos = ?";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param("ssi", $descripcion, $cantidad, $id);
+            $stmt->bind_param("ssi", $descripcion, $precio, $id);
             $stmt->execute();
             return true; // Éxito
         } catch (Exception $e) {
-            echo "<script>alert('Error al editar el ingrediente: " . $e->getMessage() . "');</script>";
+            echo "<script>alert('Error al editar el platillo: " . $e->getMessage() . "');</script>";
             return false; // Error
         }
     }
@@ -79,8 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['edit_Platillo'])) {
         $id = $_POST['id'];
         $descripcion = $_POST['descripcion'];
-        $cantidad = $_POST['cantidad'];
-        $menu->updatePlatillo($id, $descripcion, $cantidad);
+        $precio = $_POST['precio'];
+        $menu->updatePlatillo($id, $descripcion, $precio);
     } elseif (isset($_POST['delete_Platillo'])) {
         $id = $_POST['id'];
         $menu->deletePlatillo($id);
