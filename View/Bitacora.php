@@ -10,7 +10,7 @@ $bit = new ControllerBitacora();
     <link rel="stylesheet" href="../styles/estilos_menu.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Document</title>
+    <title>Bitacora</title>
 </head>
 
 <body>
@@ -32,11 +32,11 @@ $bit = new ControllerBitacora();
                     <th scope="col" class="text-center">#</th>
                     <th scope="col" class="text-center encabezado">Responsable</th>
                     <th scope="col" class="text-center encabezado">Operacion</th>
-                    <th scope="col" class="text-center encabezado">TablaObjetivo</th>
+                    <th scope="col" class="text-center encabezado">Tabla</th>
                     <th scope="col" class="text-center encabezado">Atributo</th>
-                    <th scope="col" class="text-center encabezado">ValorAnterior</th>
-                    <th scope="col" class="text-center encabezado">ValorNuevo</th>
-                    <th scope="col" class="text-center encabezado">FechaMovimiento</th>
+                    <th scope="col" class="text-center encabezado">VaAnterior</th>
+                    <th scope="col" class="text-center encabezado">VaNuevo</th>
+                    <th scope="col" class="text-center encabezado">Fecha</th>
                 </thead>
                 <tbody>
                     <?php
@@ -46,7 +46,8 @@ $bit = new ControllerBitacora();
             </table>
         </div>
     </div>
-
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js_personalizado/ReferencePage.js"></script>
 </body>
 
 </html>

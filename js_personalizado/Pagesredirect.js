@@ -50,9 +50,9 @@ class Pagesredirect {
             case 8:
                 window.location.href = "../View/Almacen.php";
                 break;
-            case 9:
-                window.location.href = "../View/Bitacora.php";
-                break;
+                case 9:
+                    window.location.href = "../View/Bitacora.php";
+                    break;
             default:
                 console.error("Invalid pointer value:", pointer);
         }
